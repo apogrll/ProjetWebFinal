@@ -1,5 +1,9 @@
 {% extends "Master.html.jinja2" %}
 
+<head>
+    <title> Réserver </title>
+</head>
+
 {% block body %}
 
     <style>
@@ -27,7 +31,7 @@
                             <label for="staticTitle" class="col-sm-2 col-form-label">Réservation de : </label>
                             <div class="col-sm-10">
                                 <input type="text" readonly class="form-control-plaintext" id="staticValue"
-                                       value={{ produit }}>
+                                       value="test">
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,8 +54,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 
 {% endblock %}

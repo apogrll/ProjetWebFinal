@@ -21,10 +21,8 @@ def master():
     return flask.render_template("Master.html.jinja2")
 
 @app.route('/reservation')
-def reservation(produit):
-    return flask.render_template("Reservation.html.jinja2", produit=produit)
-
-
+def reservation():
+    return flask.render_template("Reservation.html.jinja2")
 
 
 
