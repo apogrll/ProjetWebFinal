@@ -1,0 +1,57 @@
+{% extends "Master.html.jinja2" %}
+
+{% block body %}
+
+    <style>
+        body {
+            background-color: beige;
+        }
+
+        form {
+            font-palette: light;
+            font-style: revert;
+            color: black;
+        }
+
+        card-body {
+            background-color: burlywood;
+        }
+    </style>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="staticTitle" class="col-sm-2 col-form-label">Réservation de : </label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="staticValue"
+                                       value={{ produit }}>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName">Nom</label>
+                            <input type="nom" class="form-control" id="exampleInputName">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Prénom</label>
+                            <input type="prenom" class="form-control" id="exampleInputPassword1">
+                        </div>
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">J'ai la subvention étudiante</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Réserver</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
