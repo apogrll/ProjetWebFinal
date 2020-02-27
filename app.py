@@ -24,6 +24,9 @@ def master():
 def reservation():
     return flask.render_template("Reservation.html.jinja2")
 
+@app.route('/sandwichs')
+def sandwichs():
+    return flask.render_template("Sandwichs.html.jinja2")
 
 
 if __name__ == '__main__':
