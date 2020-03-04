@@ -8,14 +8,15 @@
 {% block body %}
 
     <style>
-        body {
-            background-color: #ffffff;
+        h1 {
+            font-weight: bold;
+            color: darkgrey
         }
     </style>
 
     <!-- ----------------------------------------------------------------------------------------------------------- -->
     <!-- Affichage de 4 sandwichs -->
-    <h1 style="color: darkgrey" style="font-weight: bold"> NOS SANDWICHS</h1>
+    <h1> NOS SANDWICHS</h1>
 
     <div class="row">
         <div class="col-sm-3">
@@ -50,21 +51,21 @@
                 <div class="card-body">
                     <h5 class="card-title"> SANDWICH 4</h5>
                     <p class="card-text">Ingredients.</p>
-                    <a href="{{ url_for("reservation") }}" class="btn btn-primary">RESERVER</a>
+                    <a href="{{ url_for("reservation") }}" class="btn btn-primary">NOS SANDWICHS</a>
                 </div>
             </div>
         </div>
     </div>
     <h1></h1>
     <!-- Bouton "Voir plus" -->
-    <a href="{{ url_for("sandwichs") }}" class="btn btn-secondary btn-lg btn-block">VOIR PLUS DE
-        SANDWICHS
-    </a>
+    <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("sandwichs") }}" style="color: black;
+            background-color: #e6d5cb;">VOIR PLUS DE SANDWICHS</a>
+
 
 
     <!-- ----------------------------------------------------------------------------------------------------------- -->
     <!-- Affichage de 4 salades -->
-    <h1 style="color: darkgrey" style="font-weight: bold"> NOS SALADES</h1>
+    <h1> NOS SALADES</h1>
 
     <div class="row">
         <div class="col-sm-3">
@@ -106,13 +107,14 @@
     </div>
     <h1></h1>
     <!-- Bouton "Voir plus" -->
-    <a type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("salades") }}">VOIR PLUS DE
+    <a type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("salades") }}" style="color: black;
+            background-color: #e6d5cb;">VOIR PLUS DE
         SALADES
     </a>
 
     <!-- ----------------------------------------------------------------------------------------------------------- -->
     <!-- Affichage de 4 wraps -->
-    <h1 style="color: darkgrey" style="font-weight: bold"> NOS WRAPS</h1>
+    <h1> NOS WRAPS</h1>
 
     <div class="row">
         <div class="col-sm-3">
@@ -155,13 +157,13 @@
 
     <h1></h1>
     <!-- Bouton "Voir plus" -->
-    <a type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("wraps") }}">VOIR PLUS DE
-        WRAPS
+    <a type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("wraps") }}" style="color: black;
+            background-color: #e6d5cb;">VOIR PLUS DE WRAPS
     </a>
 
     <!-- ----------------------------------------------------------------------------------------------------------- -->
     <!-- Affichage de 4 vege -->
-    <h1 style="color: darkgrey" style="font-weight: bold"> POUR LES VEGETARIENS</h1>
+    <h1> POUR LES VEGETARIENS</h1>
 
     <div class="row">
         <div class="col-sm-3">
@@ -203,13 +205,13 @@
     </div>
     <h1></h1>
     <!-- Bouton "Voir plus" -->
-    <a type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("vegetariens") }}">VOIR PLUS DE
-        VEGE
+    <a type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("vegetariens") }}" style="color: black;
+            background-color: #e6d5cb;">VOIR PLUS DE VEGE
     </a>
 
     <!-- ----------------------------------------------------------------------------------------------------------- -->
     <!-- Affichage de 4 plats chauds -->
-    <h1 style="color: darkgrey" style="font-weight: bold"> NOS PLATS CHAUDS </h1>
+    <h1> NOS PLATS CHAUDS </h1>
 
     <div class="row">
         <div class="col-sm-3">
@@ -251,8 +253,8 @@
     </div>
     <h1></h1>
     <!-- Bouton "Voir plus" -->
-    <a type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("platschauds") }}">VOIR PLUS DE
-        PLATS CHAUDS
+    <a type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("platschauds") }}" style="color: black;
+            background-color: #e6d5cb;">VOIR PLUS DE PLATS CHAUDS
     </a>
 
 {% endblock %}
