@@ -72,11 +72,25 @@ def master():
 def reservation():
     return flask.render_template("Reservation.html.jinja2")
 
+@app.route('/wraps')
+def wraps():
+    return flask.render_template("Wraps.html.jinja2")
+
+@app.route('/salade')
+def salades():
+    return flask.render_template("Salades.html.jinja2")
+@app.route('/vegetarien')
+def vegetariens():
+    return flask.render_template("Vegetariens.html.jinja2")
+
+@app.route('/platschauds')
+def platschauds():
+    return flask.render_template("PlatsChauds.html.jinja2")
+
 @app.route('/sandwichs')
 def sandwichs():
     sandwichs_all = Sandwichs.query.all()
     return flask.render_template("Sandwichs.html.jinja2", sandwichs_1=sandwichs_all)
-
 
 
 
