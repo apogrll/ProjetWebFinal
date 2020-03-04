@@ -20,8 +20,18 @@ with app.test_request_context():
     db.drop_all()
     db.create_all()
 
-    S1 = Produit(id=1, nom="poulet", type="sandwich", description="poulet", quantite_totale=5, quantite_restante=1,
-                 est_epuise=False)
+    S1 = Sandwichs(id=1,
+                   nom="sandwich au poulet",
+                   description="pain sesame , poulet, tomates ",
+                   prix_s = "2" ,
+                   quantite_totale=5,
+                   quantite_restante=1,
+                   est_epuise=False)
+
+    C1 = Client (id_c = ,
+                 nom_client= Fourneau,
+                 prenom_client= Elsa)
+
 
 
 
