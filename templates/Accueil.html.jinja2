@@ -197,4 +197,49 @@
         VEGE
     </button>
 
+    <h1 class="display-2" style="color: darkgrey" style="font-weight: bold"> NOS PLATS CHAUDS </h1>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> plat 1</h5>
+                    <p class="card-text">Ingredients.</p>
+                    <a href="{{ url_for("reservation") }}" class="btn btn-primary">RESERVER</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> plat 2 </h5>
+                    <p class="card-text">Ingrédients.</p>
+                    <a href="{{ url_for("reservation") }}" class="btn btn-primary"> RESERVER </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> plat 3</h5>
+                    <p class="card-text">Ingredients.</p>
+                    <a href="{{ url_for("reservation") }}" class="btn btn-primary">RESERVER</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> plat 4</h5>
+                    <p class="card-text">Ingredients.</p>
+                    <a href="{{ url_for("reservation") }}" class="btn btn-primary">RESERVER</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1></h1>
+    <button type="button" class="btn btn-secondary btn-lg btn-block" href="{{ url_for("sandwichs") }}">VOIR PLUS DE
+        PLATS CHAUDS
+    </button>
+
 {% endblock %}
