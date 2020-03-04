@@ -9,6 +9,8 @@ class Sandwichs (db.Model):
     quantite_restante = db.Column(db.Integer)
     est_epuise = db.Column(db.Boolean)
 
+
+
 class Client (db.Model):
     id_c = db.Column(db.Integer, primary_key=True)
     nom_client = db.Column(db.Text)
