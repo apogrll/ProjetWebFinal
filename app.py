@@ -29,5 +29,21 @@ def sandwichs():
     return flask.render_template("Sandwichs.html.jinja2")
 
 
+@app.route('/salades')
+def salades():
+    return flask.render_template("Salades.hmlt.jinja2")
+
+@app.route('/wraps')
+def wraps():
+    return flask.render_template("Wraps.hmlt.jinja2")
+
+@app.route('/vegetariens')
+def vegetariens():
+    return flask.render_template("Vegetariens.hmlt.jinja2")
+
+@app.route('/platschauds')
+def platschauds():
+    return flask.render_template("PlatsChauds.hmlt.jinja2")
+
 if __name__ == '__main__':
     app.run()
