@@ -61,14 +61,16 @@ def afficher_accueil():
 def master():
     return flask.render_template("Master.html.jinja2")
 
+
+@app.route('/reservation/<id_s>')
+def reservation(id_s):
+    sandwich = Sandwichs.query.filter_by(id_s = id_s).first()
+    return flask.render_template("Reservation.html.jinja2", sandwich=sandwich)
+    
 @app.route('/sandwichs')
 def sandwichs():
     sandwichs_all = Sandwichs.query.all()
     return flask.render_template("Sandwichs.html.jinja2",sandwichs_1=sandwichs_all)
-
-@app.route('/reservation')
-def reservation():
-    return flask.render_template("Reservation.html.jinja2")
 
 @app.route('/wraps')
 def wraps():
