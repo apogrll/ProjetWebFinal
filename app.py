@@ -10,9 +10,13 @@ app: Flask = Flask(__name__)
 #db.init_app(app)                        # (1) flask prend en compte la base de donnee
 #with app.test_request_context():         # (2) bloc execute a l'initialisation de Flask
 
+##########################################################################################
+# BASE DE DONNEES
+##########################################################################################
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database/database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 
 db.init_app(app) # (1) flask prend en compte la base de donnee
 with app.test_request_context(): # (2) bloc execute a l'initialisation de Flask
@@ -23,6 +27,10 @@ with app.test_request_context(): # (2) bloc execute a l'initialisation de Flask
 
     db.session.add(S1)
     db.session.commit()
+
+##########################################################################################
+# PAGES
+##########################################################################################
 
 @app.route('/accueil')
 def afficher_accueil():
@@ -57,5 +65,9 @@ def vegetariens():
 def platschauds():
     return flask.render_template("PlatsChauds.html.jinja2")
 
+
+##########################################################################################
+# MAIN
+##########################################################################################
 if __name__ == '__main__':
     app.run()
