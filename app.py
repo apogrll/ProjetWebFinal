@@ -7,9 +7,6 @@ from database.models import *
 
 app: Flask = Flask(__name__)
 
-#db.init_app(app)                        # (1) flask prend en compte la base de donnee
-#with app.test_request_context():         # (2) bloc execute a l'initialisation de Flask
-
 ##########################################################################################
 # BASE DE DONNEES
 ##########################################################################################
@@ -18,12 +15,16 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database/database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
-db.init_app(app) # (1) flask prend en compte la base de donnee
-with app.test_request_context(): # (2) bloc execute a l'initialisation de Flask
+db.init_app(app)
+with app.test_request_context():
+    db.drop_all()
     db.create_all()
 
     S1 = Produit(id=1, nom="poulet", type="sandwich", description="poulet", quantite_totale=5, quantite_restante=1,
                  est_epuise=False)
+
+
+
 
     db.session.add(S1)
     db.session.commit()
