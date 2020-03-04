@@ -10,9 +10,3 @@ class Produit(db.Model):
     quantite_restante = db.Column(db.Integer)
     est_epuise = db.Column(db.Boolean)
 
-
-S1 = Produit(id=1, nom="poulet", type="sandwich", description="poulet", quantite_totale=5, quantite_restante=1,
-             est_epuise=False)
-
-db.session.add(S1)
-db.session.commit()
