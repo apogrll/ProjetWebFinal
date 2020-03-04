@@ -34,15 +34,15 @@ def salades():
     return flask.render_template("Salades.hmlt.jinja2")
 
 @app.route('/wraps')
-def salades():
+def wraps():
     return flask.render_template("Wraps.hmlt.jinja2")
 
 @app.route('/vegetariens')
-def salades():
+def vegetariens():
     return flask.render_template("Vegetariens.hmlt.jinja2")
 
 @app.route('/platschauds')
-def salades():
+def platschauds():
     return flask.render_template("PlatsChauds.hmlt.jinja2")
 
 if __name__ == '__main__':
