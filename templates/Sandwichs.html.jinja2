@@ -15,7 +15,7 @@
 
     <h1> NOS SANDWICHS </h1>
 
-    <h2 style="color:grey" style="font-weight: bold"> A base de jambon</h2>
+    <h2 style="color:grey" style="font-weight: bold"> Choisissez un sandwich </h2>
     <div class="row">
 
 <!--  ----------------------------------------------------------------------------------------------------  -->
@@ -27,7 +27,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title"> {{ sandwich.nom_s }} </h5>
-                        <p class="card-text">Ingredients.</p>
+                        <p class="card-text"> Description : {{ sandwich.description }}</p>
+                        <h6 class="card-subtitle mb-2 text-muted"> Il reste {{  sandwich.quantite_restante }} sandiwch(s)</h6>
                         <a href="{{ url_for("reservation", id_s=sandwich.id_s) }}" class="btn btn-primary">RESERVER</a>
                     </div>
                 </div>

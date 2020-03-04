@@ -16,50 +16,46 @@ with app.test_request_context():
     db.drop_all()
     db.create_all()
 
-    S1 = Sandwichs(nom_s="sandwich au poulet",
-                   description="pain sesame , poulet, tomates ",
+    ##########################################################################################
+    #  CREATION BASE DE DONNEES SANDWICHS
+    ##########################################################################################
+    S1 = Sandwichs(nom_s="Sandwich au poulet",
+                   description="pain sesame, poulet, tomates ",
                    prix_s="2",
                    quantite_totale=5,
                    quantite_restante=1,
                    est_epuise=False)
 
-    S2 = Sandwichs(nom_s="sandwich au thon",
-                   description="pain sesame ,thon, tomates ",
+    S2 = Sandwichs(nom_s="Sandwich au thon",
+                   description="pain sesame,thon, tomates ",
                    prix_s="2",
                    quantite_totale=5,
-                   quantite_restante=1,
+                   quantite_restante=5,
+                   est_epuise=False)
+
+    S3 = Sandwichs(nom_s="Sandwich au jambon",
+                   description="pain sesame,jambon, tomates ",
+                   prix_s="2",
+                   quantite_totale=5,
+                   quantite_restante=4,
                    est_epuise=False)
 
     db.session.add(S1)
     db.session.add(S2)
+    db.session.add(S3)
 
-    C1 = Client(nom_client='Fourneau',
-                 prenom_client='Elsa')
+    ##########################################################################################
+    #  CREATION BASE DE DONNEES SALADES
+    ##########################################################################################
 
-    db.session.add(C1)
 
     db.session.commit()
 
-##########################################################################################
-# RECUPERATION BASE DE DONNEES
-##########################################################################################
-
-def recup_clients():
-    return Client.query.all()
-
-def recup_nom_sandwich():
-    return Sandwichs.query.first().nom_s
-
-def get_liste_sandwichs():
-    nom = recup_nom_sandwich(sandwichs.noms_s)
-    return nom
-
 
 
 ##########################################################################################
-# PAGES
+# LIEN PAGES
 ##########################################################################################
-
 @app.route('/accueil')
 def afficher_accueil():
    return flask.render_template("Accueil.html.jinja2")
@@ -68,10 +64,16 @@ def afficher_accueil():
 def master():
     return flask.render_template("Master.html.jinja2")
 
+
 @app.route('/reservation/<id_s>')
 def reservation(id_s):
     sandwich = Sandwichs.query.filter_by(id_s = id_s).first()
     return flask.render_template("Reservation.html.jinja2", sandwich=sandwich)
+    
+@app.route('/sandwichs')
+def sandwichs():
+    sandwichs_all = Sandwichs.query.all()
+    return flask.render_template("Sandwichs.html.jinja2",sandwichs_1=sandwichs_all)
 
 @app.route('/wraps')
 def wraps():
@@ -88,10 +90,7 @@ def vegetariens():
 def platschauds():
     return flask.render_template("PlatsChauds.html.jinja2")
 
-@app.route('/sandwichs')
-def sandwichs():
-    sandwichs_all = Sandwichs.query.all()
-    return flask.render_template("Sandwichs.html.jinja2", sandwichs_1=sandwichs_all)
+
 
 
 
