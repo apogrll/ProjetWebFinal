@@ -6,14 +6,30 @@
 
 {% block body %}
 
-    <h1 style="color: darkgrey" style="font-weight: bold"> NOS SANDWICHS</h1>
+    <h1 style="color: darkgrey" style="font-weight: bold"> NOS SANDWICHS </h1>
 
     <h2 style="color:grey" style="font-weight: bold"> A base de jambon</h2>
     <div class="row">
+
+
+        {% for sandwich in sandwichs_1 %}
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ sandwich.nom_s }} </h5>
+                        <p class="card-text">Ingredients.</p>
+                        <a href="{{ url_for("reservation") }}" class="btn btn-primary">RESERVER</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"> SANDWICH 1</h5>
+                    <h5 class="card-title"> SANDWICH 1 </h5>
                     <p class="card-text">Ingredients.</p>
                     <a href="{{ url_for("reservation") }}" class="btn btn-primary">RESERVER</a>
                 </div>
