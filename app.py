@@ -65,11 +65,11 @@ def master():
     return flask.render_template("Master.html.jinja2")
 
 
-@app.route('/reservation/<id_s>')
-def reservation(id_s):
-    sandwich = Sandwichs.query.filter_by(id_s = id_s).first()
-    client = Client.query.filter_by(id_c=1).first()
-    return flask.render_template("Reservation.html.jinja2", sandwich=sandwich, client=client)
+@app.route('/reservation/') #id_s
+def reservation():#id_s#
+    #sandwich = Sandwichs.query.filter_by(id_s = id_s).first()
+    #client = Client.query.filter_by(id_c=1).first()
+    return flask.render_template("Reservation.html.jinja2") #, sandwich=sandwich, client=client)
     
 @app.route('/sandwichs')
 def sandwichs():
