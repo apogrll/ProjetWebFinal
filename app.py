@@ -29,5 +29,9 @@ def sandwichs():
     return flask.render_template("Sandwichs.html.jinja2")
 
 
+@app.route('/salades')
+def salades():
+    return flask.render_template("Salades.hmlt.jinja2")
+
 if __name__ == '__main__':
     app.run()
