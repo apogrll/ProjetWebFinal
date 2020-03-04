@@ -25,21 +25,18 @@ with app.test_request_context():
                    quantite_totale=5,
                    quantite_restante=1,
                    est_epuise=False)
-
     S2 = Sandwichs(nom_s="Sandwich au thon",
                    description="pain sesame,thon, tomates ",
                    prix_s="2",
                    quantite_totale=5,
                    quantite_restante=5,
                    est_epuise=False)
-
     S3 = Sandwichs(nom_s="Sandwich au jambon",
                    description="pain sesame,jambon, tomates ",
                    prix_s="2",
                    quantite_totale=5,
                    quantite_restante=4,
                    est_epuise=False)
-
     db.session.add(S1)
     db.session.add(S2)
     db.session.add(S3)
