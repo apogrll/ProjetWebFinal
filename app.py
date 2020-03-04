@@ -23,14 +23,14 @@ with app.test_request_context():
     S1 = Sandwichs(id=1,
                    nom="sandwich au poulet",
                    description="pain sesame , poulet, tomates ",
-                   prix_s = "2" ,
+                   prix_s="2",
                    quantite_totale=5,
                    quantite_restante=1,
                    est_epuise=False)
 
-    C1 = Client (id_c = ,
-                 nom_client= Fourneau,
-                 prenom_client= Elsa)
+    C1 = Client(id_c=2,
+                 nom_client='Fourneau',
+                 prenom_client='Elsa')
 
 
 
