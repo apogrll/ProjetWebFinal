@@ -1,11 +1,11 @@
 {% extends "Master.html.jinja2" %}
 
 <head>
-    <title> NOS SANDWICHS </title>
+    <title> NOS BLABLA </title>
 </head>
 
 {% block body %}
-    
+
     <style>
         h1 {
             font-weight: bold;
@@ -13,9 +13,9 @@
         }
     </style>
 
-    <h1> NOS SANDWICHS </h1>
+    <h1> NOS BLABLA </h1>
 
-    <h2 style="color:grey" style="font-weight: bold"> Choisissez un sandwich </h2>
+    <h2 style="color:grey" style="font-weight: bold"> Choisissez un(e) VHBSKB </h2>
     <div class="row">
 
 <!--  ----------------------------------------------------------------------------------------------------  -->
@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> {{ produit.nom_s }} </h5>
                         <p class="card-text"> Description : {{ produit.description }}</p>
-                        <h6 class="card-subtitle mb-2 text-muted"> Il reste {{ produit.quantite_restante }} sandiwch(s)</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"> Quantite restante : {{ produit.quantite_restante }} </h6>
                         <a href="{{ url_for("reservation", id_s=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
                     </div>
                 </div>

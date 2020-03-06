@@ -19,26 +19,24 @@ with app.test_request_context():
     ##########################################################################################
     #  CREATION BASE DE DONNEES SANDWICHS
     ##########################################################################################
-    S1 = Sandwichs(nom_s="Sandwich au poulet",
+    S1 = Produits(nom_s="Sandwich au poulet",
+                   categorie= "Sandwichs",
                    description="pain sesame, poulet, tomates ",
                    prix_s="2",
                    quantite_totale=5,
                    quantite_restante=1,
                    est_epuise=False)
-    S2 = Sandwichs(nom_s="Sandwich au thon",
-                   description="pain sesame,thon, tomates ",
-                   prix_s="2",
-                   quantite_totale=5,
-                   quantite_restante=5,
-                   est_epuise=False)
-    S3 = Sandwichs(nom_s="Sandwich au jambon",
-                   description="pain sesame,jambon, tomates ",
+
+    S3 = Produits(nom_s="Salade 1",
+                   categorie="Salades",
+                   description="salade",
                    prix_s="2",
                    quantite_totale=5,
                    quantite_restante=4,
                    est_epuise=False)
+
+
     db.session.add(S1)
-    db.session.add(S2)
     db.session.add(S3)
 
     ##########################################################################################
@@ -61,32 +59,44 @@ def afficher_accueil():
 def master():
     return flask.render_template("Master.html.jinja2")
 
-
 @app.route('/reservation/<id_s>')
 def reservation(id_s):
-    sandwich = Sandwichs.query.filter_by(id_s = id_s).first()
-    client = Client.query.filter_by(id_c=1).first()
-    return flask.render_template("Reservation.html.jinja2", sandwich=sandwich, client=client)
-    
+    #sandwich = Produits.query.filter_by(id_s = id_s).first()
+    #client = Client.query.filter_by(id_c=1).first()
+    return flask.render_template("Reservation.html.jinja2") #, sandwich=sandwich, client=client)
+
+##########################################################################################
+# LIEN PRODUITS
+##########################################################################################
+@app.route('/produits')
+def produits():
+    return flask.render_template("PageCardProduits.html.jinja2")
+
 @app.route('/sandwichs')
 def sandwichs():
-    sandwichs_all = Sandwichs.query.all()
+    sandwichs_all = Produits.query.filter_by(categorie="Sandwichs").all()
     return flask.render_template("Sandwichs.html.jinja2",sandwichs_1=sandwichs_all)
+
+@app.route('/salades')
+def salades():
+    salades_all = Produits.query.filter_by(categorie="Salades").all()
+    return flask.render_template("PageCardProduits.html.jinja2",sandwichs_1 = salades_all)
 
 @app.route('/wraps')
 def wraps():
-    return flask.render_template("Wraps.html.jinja2")
+    wraps_all = Produits.query.filter_by(categorie="Wraps").all()
+    return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=wraps_all)
 
-@app.route('/salade')
-def salades():
-    return flask.render_template("Salades.html.jinja2")
+
 @app.route('/vegetarien')
 def vegetariens():
-    return flask.render_template("Vegetariens.html.jinja2")
+    vegetariens_all = Produits.query.filter_by(categorie="Vegetariens").all()
+    return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=vegetariens_all)
 
 @app.route('/platschauds')
 def platschauds():
-    return flask.render_template("PlatsChauds.html.jinja2")
+    platschauds_all = Produits.query.filter_by(categorie="PlatsChauds").all()
+    return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=platschauds_all)
 
 
 
