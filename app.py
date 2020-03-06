@@ -27,6 +27,14 @@ with app.test_request_context():
                    quantite_restante=1,
                    est_epuise=False)
 
+    S2 = Produits(nom_s="Sandwich au pfbjndo",
+                  categorie="Sandwichs",
+                  description="pain sesame, poulet, tomates ",
+                  prix_s="2",
+                  quantite_totale=5,
+                  quantite_restante=1,
+                  est_epuise=False)
+
     S3 = Produits(nom_s="Salade 1",
                    categorie="Salades",
                    description="salade",
@@ -37,6 +45,7 @@ with app.test_request_context():
 
 
     db.session.add(S1)
+    db.session.add(S2)
     db.session.add(S3)
 
     ##########################################################################################
@@ -54,6 +63,8 @@ with app.test_request_context():
 @app.route('/accueil')
 def afficher_accueil():
    return flask.render_template("Accueil.html.jinja2")
+    #produits_all = Produits.query.all()
+    #return flask.render_template("Accueil.html.jinja2",sandwichs_1=produits_all)
 
 @app.route('/')
 def master():
@@ -77,7 +88,7 @@ def produits():
 @app.route('/sandwichs')
 def sandwichs():
     sandwichs_all = Produits.query.filter_by(categorie="Sandwichs").all()
-    return flask.render_template("Sandwichs.html.jinja2",sandwichs_1=sandwichs_all)
+    return flask.render_template("PageCardProduits.html.jinja2",sandwichs_1=sandwichs_all)
 
 @app.route('/salades')
 def salades():
