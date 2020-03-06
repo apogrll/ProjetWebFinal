@@ -59,6 +59,7 @@ def afficher_accueil():
 def master():
     return flask.render_template("Master.html.jinja2")
 
+
 @app.route('/reservation/<id_s>')
 def reservation(id_s):
     #sandwich = Produits.query.filter_by(id_s = id_s).first()
@@ -71,6 +72,7 @@ def reservation(id_s):
 @app.route('/produits')
 def produits():
     return flask.render_template("PageCardProduits.html.jinja2")
+
 
 @app.route('/sandwichs')
 def sandwichs():
