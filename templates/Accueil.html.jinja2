@@ -19,9 +19,9 @@
     <h1> TOUS NOS PRODUITS </h1>
 
     {% for liste in listep %}
+        {% for produit in liste %}
 
-        <div class="col-sm-3">
-            {% for produit in liste %}
+            <div class="col-sm-3">
 
                 <div class="card">
                     <div class="card-body">
@@ -33,16 +33,15 @@
                         <a href="{{ url_for("reservation", id=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
                     </div>
                 </div>
-            {% endfor %}
 
-        </div>
+            </div>
+        {% endfor %}
 
         <h1></h1>
         <!-- Bouton "Voir plus" -->
-        <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("produits", cat=liste[0].categorie) }}"
-           style="color: black;
-            background-color: #e6d5cb;">Voir plus de {{ produit.categorie }}</a>
+        <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("produits", cat="Sandwichs") }}" style="color: black; background-color: #e6d5cb;">Voir plus de test</a>
     {% endfor %}
+
 
 
 {% endblock %}
