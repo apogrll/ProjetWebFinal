@@ -16,8 +16,9 @@ with app.test_request_context():
     db.drop_all()
     db.create_all()
 
+
     ##########################################################################################
-    #  CREATION BASE DE DONNEES SANDWICHS
+    #  CREATION BASE DE DONNEES PRODUITS
     ##########################################################################################
     S1 = Produits(nom_s="Sandwich au poulet",
                    categorie= "Sandwichs",
@@ -48,13 +49,8 @@ with app.test_request_context():
     db.session.add(S2)
     db.session.add(S3)
 
-    ##########################################################################################
-    #  CREATION BASE DE DONNEES SALADES
-    ##########################################################################################
-
 
     db.session.commit()
-
 
 
 ##########################################################################################
@@ -62,9 +58,9 @@ with app.test_request_context():
 ##########################################################################################
 @app.route('/accueil')
 def afficher_accueil():
-   return flask.render_template("Accueil.html.jinja2")
-    #produits_all = Produits.query.all()
-    #return flask.render_template("Accueil.html.jinja2",sandwichs_1=produits_all)
+   #return flask.render_template("Accueil.html.jinja2")
+    produits_all = Produits.query.all()
+    return flask.render_template("Accueil.html.jinja2",sandwichs_1=produits_all)
 
 @app.route('/')
 def master():
@@ -100,7 +96,6 @@ def salades():
 def wraps():
     wraps_all = Produits.query.filter_by(categorie="Wraps").all()
     return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=wraps_all)
-
 
 @app.route('/vegetarien')
 def vegetariens():

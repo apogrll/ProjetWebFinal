@@ -19,6 +19,5 @@ class Reservation (db.Model):
     id_r = db.Column(db.Integer, primary_key=True)
     db.column('nom_client', db.Text, db.ForeignKey('Client.nom_client')),
     db.column('prenom_client', db.Text, db.ForeignKey('Client.prenom_client')),
-    db.column('nom_s', db.Text, db.ForeignKey('Sandwichs.nom_s')),
+    db.column('nom_s', db.Text, db.ForeignKey('produits.nom_s')),
     quantite_reservation = db.Column(db.Integer)
-
