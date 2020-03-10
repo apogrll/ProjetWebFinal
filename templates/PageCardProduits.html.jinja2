@@ -36,7 +36,7 @@
                         <p class="card-text"> {{ produit.description }}</p>
                         <h6 class="card-subtitle mb-2 text-muted"> Quantite restante : {{ produit.quantite_restante }} </h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
-                        <a href="{{ url_for("reservation", id_s=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
+                        <a href="{{ url_for("reservation", id=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
                     </div>
                 </div>
             </div>

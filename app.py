@@ -58,8 +58,7 @@ with app.test_request_context():
 ##########################################################################################
 @app.route('/accueil')
 def afficher_accueil():
-   #return flask.render_template("Accueil.html.jinja2")
-    produits_all = Produits.query.all()
+    produits_all = Produits.query.filter_by()
     return flask.render_template("Accueil.html.jinja2",sandwichs_1=produits_all)
 
 @app.route('/')
