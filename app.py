@@ -58,8 +58,13 @@ with app.test_request_context():
 ##########################################################################################
 @app.route('/accueil')
 def afficher_accueil():
-    produits_all = Produits.query.all()
-    return flask.render_template("Accueil.html.jinja2",sandwichs_1=produits_all)
+    sandwichs_all = Produits.query.filter_by(categorie="Sandwichs").all()
+    salades_all = Produits.query.filter_by(categorie="Salades").all()
+    wraps_all = Produits.query.filter_by(categorie="Wraps").all()
+    vegetariens_all = Produits.query.filter_by(categorie="Vegetariens").all()
+    platschauds_all = Produits.query.filter_by(categorie="PlatsChauds").all()
+    listes_produits=[sandwichs_all, salades_all, wraps_all, vegetariens_all, platschauds_all]
+    return flask.render_template("Accueil.html.jinja2",sandwichs_1=sandwichs_all, salades_1=salades_all, wraps_1=wraps_all, vegetariens_1=vegetariens_all, platschauds_1=platschauds_all, listep=listes_produits)
 
 @app.route('/')
 def master():
