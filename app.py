@@ -104,7 +104,7 @@ def vegetariens():
 @app.route('/platschauds')
 def platschauds():
     platschauds_all = Produits.query.filter_by(categorie="PlatsChauds").all()
-    return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=platschauds_all)
+    return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=platschauds_all, categorie=platschauds)
 
 
 
