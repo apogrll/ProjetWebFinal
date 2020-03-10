@@ -67,11 +67,11 @@ def master():
     return flask.render_template("Master.html.jinja2")
 
 
-@app.route('/reservation/<id_s>')
-def reservation(id_s):
-    #sandwich = Produits.query.filter_by(id_s = id_s).first()
-    #client = Client.query.filter_by(id_c=1).first()
-    return flask.render_template("Reservation.html.jinja2") #, sandwich=sandwich, client=client)
+@app.route('/reservation/<id>')
+def reservation(id):
+    produit = Produits.query.filter_by(id = id).first()
+    client = Client.query.filter_by(id_c=1).first()
+    return flask.render_template("Reservation.html.jinja2", produit=produit, client=client)
 
 ##########################################################################################
 # LIEN PRODUITS
@@ -84,7 +84,8 @@ def produits():
 @app.route('/sandwichs')
 def sandwichs():
     sandwichs_all = Produits.query.filter_by(categorie="Sandwichs").all()
-    return flask.render_template("PageCardProduits.html.jinja2",sandwichs_1=sandwichs_all)
+    cat = "Sandwichs"
+    return flask.render_template("PageCardProduits.html.jinja2",sandwichs_1=sandwichs_all, categorie=cat)
 
 @app.route('/salades')
 def salades():

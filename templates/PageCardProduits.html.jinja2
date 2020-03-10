@@ -14,7 +14,11 @@
         }
     </style>
 
-    <h1 class="title"> {{ produit.categorie }} </h1>
+
+
+
+    <h1 class="title"> vbiusb </h1>
+
 
 
     <h2 style="color:grey" style="font-weight: bold"> Choisissez un(e) VHBSKB </h2>
@@ -29,7 +33,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title"> {{ produit.nom_s }} </h5>
-                        <p class="card-text"> Description : {{ produit.description }}</p>
+                        <p class="card-text"> {{ produit.description }}</p>
                         <h6 class="card-subtitle mb-2 text-muted"> Quantite restante : {{ produit.quantite_restante }} </h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
                         <a href="{{ url_for("reservation", id_s=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
