@@ -64,7 +64,7 @@ def afficher_accueil():
     vegetariens_all = Produits.query.filter_by(categorie="Vegetariens").all()
     platschauds_all = Produits.query.filter_by(categorie="PlatsChauds").all()
     listes_produits=[sandwichs_all, salades_all, wraps_all, vegetariens_all, platschauds_all]
-    return flask.render_template("Accueil.html.jinja2",sandwichs_1=sandwichs_all, salades_1=salades_all, wraps_1=wraps_all, vegetariens_1=vegetariens_all, platschauds_1=platschauds_all, listep=listes_produits)
+    return flask.render_template("Accueil.html.jinja2", listep=listes_produits)
 
 @app.route('/')
 def master():
@@ -86,28 +86,28 @@ def produits(cat):
     return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=list_produits, categorie = cat)
 
 
-@app.route('/sandwichs')
+@app.route('/Sandwichs')
 def sandwichs():
     sandwichs_all = Produits.query.filter_by(categorie="Sandwichs").all()
     cat = "Sandwichs"
     return flask.render_template("PageCardProduits.html.jinja2",sandwichs_1=sandwichs_all, categorie=cat)
 
-@app.route('/salades')
+@app.route('/Salades')
 def salades():
     salades_all = Produits.query.filter_by(categorie="Salades").all()
     return flask.render_template("PageCardProduits.html.jinja2",sandwichs_1 = salades_all)
 
-@app.route('/wraps')
+@app.route('/Wraps')
 def wraps():
     wraps_all = Produits.query.filter_by(categorie="Wraps").all()
     return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=wraps_all)
 
-@app.route('/vegetarien')
+@app.route('/Vegetarien')
 def vegetariens():
     vegetariens_all = Produits.query.filter_by(categorie="Vegetariens").all()
     return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=vegetariens_all)
 
-@app.route('/platschauds')
+@app.route('/Platschauds')
 def platschauds():
     platschauds_all = Produits.query.filter_by(categorie="PlatsChauds").all()
     return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=platschauds_all, categorie=platschauds)
