@@ -75,9 +75,10 @@ def reservation(id):
 ##########################################################################################
 # LIEN PRODUITS
 ##########################################################################################
-@app.route('/produits')
-def produits():
-    return flask.render_template("PageCardProduits.html.jinja2")
+@app.route('/<cat>')
+def produits(cat):
+    list_produits=Produits.query.filter_by(categorie=cat).all()
+    return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=list_produits, categorie = cat)
 
 
 @app.route('/sandwichs')
