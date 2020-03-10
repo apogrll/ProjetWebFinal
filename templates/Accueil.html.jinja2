@@ -1,7 +1,6 @@
 {% extends "Master.html.jinja2" %}
 
 
-
 <head>
     <title> Accueil </title>
 </head>
@@ -19,16 +18,19 @@
     <!-- Affichage -->
     <h1> TOUS NOS PRODUITS </h1>
 
-    <div class="row">
+    {% for produit in sandwichs_1 %}
+        <div class="row">
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"> {{ blabla }}</h5>
+                    <h5 class="card-title"> {{ produit.nom }}</h5>
                     <p class="card-text">Ingredients :</p>
-                    <a href="{{ url_for("reservation") }}" class="btn btn-primary">RESERVER</a>
+                    <a href="{{ url_for("reservation", id=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
                 </div>
             </div>
         </div>
+    {% endfor %}
+
     <h1></h1>
     <!-- Bouton "Voir plus" -->
 
