@@ -68,7 +68,7 @@ def master():
 
 @app.route('/reservation/<id>')
 def reservation(id):
-    produit = Produits.query.filter_by(id = id).first()
+    produit = Produits.query.filter_by(id_s = id).first()
     client = Client.query.filter_by(id_c=1).first()
     return flask.render_template("Reservation.html.jinja2", produit=produit, client=client)
 
