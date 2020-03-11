@@ -77,7 +77,6 @@ with app.test_request_context():
 def afficher_accueil():
 
     categories_dict = {}
-
     categories1 = set([p.categorie for p in Produits.query.all()])
 
     for category_name in categories1:
