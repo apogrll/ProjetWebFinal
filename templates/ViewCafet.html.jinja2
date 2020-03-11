@@ -1,0 +1,35 @@
+<head>
+    <title> NOS PRODUITS </title>
+</head>
+
+{% block body %}
+
+        <style>
+        body {
+            background-color: beige;
+        }
+
+        form {
+            font-palette: light;
+            font-style: revert;
+            color: black;
+        }
+
+        card-body {
+            background-color: burlywood;
+        }
+    </style>
+
+        {% for produit in sandwichs_1 %}
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ produit.nom_s }} </h5>
+                        <p class="card-text"> {{ produit.quantite_restante }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+{% endblock %}
