@@ -7,16 +7,12 @@ app: Flask = Flask(__name__)
 ##########################################################################################
 #  CREATION BASE DE DONNEES
 ##########################################################################################
-
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database/database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
 db.init_app(app)
 with app.test_request_context():
     db.drop_all()
     db.create_all()
-
-
     ##########################################################################################
     #  CREATION BASE DE DONNEES PRODUITS
     ##########################################################################################
@@ -59,12 +55,11 @@ with app.test_request_context():
     ##########################################################################################
     #  CREATION BASE DE DONNEES CLIENT
     ##########################################################################################
-
     C1 = Client(nom_client="test",
                 prenom_client="test")
     db.session.add(C1)
-    db.session.commit()
 
+    db.session.commit()
 
 ##########################################################################################
 # LIEN PAGES
@@ -72,20 +67,16 @@ with app.test_request_context():
 @app.route('/accueil')
 def afficher_accueil():
     client = Client.query.filter_by(id_c=1).first()
-
     categories_dict = {}
     categories1 = set([p.categorie for p in Produits.query.all()])
-
     for category_name in categories1:
         categories_dict[category_name] = Produits.query.filter_by(categorie=category_name).all()
-
     return flask.render_template("Accueil.html.jinja2", categories_dict=categories_dict, client=client)
 
 @app.route('/')
 def master():
     client = Client.query.filter_by(id_c=1).first()
     return flask.render_template("Master.html.jinja2", client=client)
-
 
 @app.route('/reservation/<id>')
 def reservation(id):
@@ -109,6 +100,23 @@ def produits(cat):
 
     #quantite_restante = Produits.query.filter_by(categorie=cat).count()
     list_produits=Produits.query.filter_by(categorie=cat).all()
+
+    if len(list_produits) == 0:
+        cat = cat + " sont épuisés"
+    else:
+        cat=cat
+    return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=list_produits, categorie = cat, client=client)
+
+#quantite_totale = Produits.query.filter_by(categorie=  ).count()
+
+##########################################################################################
+# VIEW CAFETERIA
+##########################################################################################
+@app.route('/viewcafet')
+def viewcafet():
+    liste = Produits.query.filter_by().all()
+    return flask.render_template("ViewCafet.html.jinja2", liste=liste)
+
     client = Client.query.filter_by(id_c=1).first()
 
     return flask.render_template("PageCardProduits.html.jinja2", produits=list_produits, categorie = cat, client=client)
