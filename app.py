@@ -71,6 +71,7 @@ with app.test_request_context():
 ##########################################################################################
 @app.route('/accueil')
 def afficher_accueil():
+    client = Client.query.filter_by(id_c=1).first()
 
     categories_dict = {}
     categories1 = set([p.categorie for p in Produits.query.all()])
@@ -78,7 +79,7 @@ def afficher_accueil():
     for category_name in categories1:
         categories_dict[category_name] = Produits.query.filter_by(categorie=category_name).all()
 
-    return flask.render_template("Accueil.html.jinja2", categories_dict=categories_dict)
+    return flask.render_template("Accueil.html.jinja2", categories_dict=categories_dict, client=client)
 
 @app.route('/')
 def master():
@@ -98,6 +99,9 @@ def reservation(id):
 @app.route('/<cat>')
 def produits(cat):
     #quantite_restante = Produits.query.filter_by(categorie=cat).count()
+
+    client = Client.query.filter_by(id_c=1).first()
+
 
     list_produits=Produits.query.filter_by(categorie=cat).all()
     if len(list_produits) == 0:
