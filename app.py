@@ -93,6 +93,11 @@ def reservation(id):
     client = Client.query.filter_by(id_c=1).first()
     return flask.render_template("Reservation.html.jinja2", produit=produit_select, client=client)
 
+@app.route('/do_reservation/', methods=["POST"])
+def do_reservation():
+    print(flask.request)
+    return flask.redirect("/")
+
 ##########################################################################################
 # LIEN PRODUITS
 ##########################################################################################
