@@ -18,28 +18,33 @@
     <!-- Affichage -->
     <h1> TOUS NOS PRODUITS </h1>
 
-    {% for liste in listep %}
-        {% for produit in liste %}
+    {% for category_name in categories_dict %}
+        <h2> Nos {{ category_name }}</h2>
 
-            <div class="col-sm-3">
+        <div class="row">
+            {% for produit in categories_dict[category_name] %}
 
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"> {{ produit.nom_s }} </h5>
-                        <p class="card-text"> {{ produit.description }}</p>
-                        <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
-                            : {{ produit.quantite_restante }} </h6>
-                        <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
-                        <a href="{{ url_for("reservation", id=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
+                <div class="col-sm-3">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ produit.nom_s }} </h5>
+                            <p class="card-text"> {{ produit.description }}</p>
+                            <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
+                                : {{ produit.quantite_restante }} </h6>
+                            <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
+                            <a href="{{ url_for("reservation", id=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
+                        </div>
                     </div>
-                </div>
 
-            </div>
-        {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
 
         <h1></h1>
         <!-- Bouton "Voir plus" -->
-        <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("produits", cat="Sandwichs") }}" style="color: black; background-color: #e6d5cb;">Voir plus de test</a>
+        <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("produits", cat=category_name) }}"
+           style="color: black; background-color: #e6d5cb;">Voir plus de {{ category_name }}</a>
     {% endfor %}
 
 

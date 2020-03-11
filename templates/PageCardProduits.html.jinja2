@@ -2,7 +2,7 @@
 
 
 <head>
-    <title> NOS  PRODUITS </title>
+    <title> NOS PRODUITS </title>
 </head>
 
 {% block body %}
@@ -23,9 +23,9 @@
     <h2 style="color:grey" style="font-weight: bold"> Faites votre selection </h2>
     <div class="row">
 
-<!--  ----------------------------------------------------------------------------------------------------  -->
-<!--  CARD DE /SANDWICHS -->
-<!--  ----------------------------------------------------------------------------------------------------  -->
+        <!--  ----------------------------------------------------------------------------------------------------  -->
+        <!--  CARD DE /SANDWICHS -->
+        <!--  ----------------------------------------------------------------------------------------------------  -->
 
         {% for produit in sandwichs_1 %}
             <div class="col-sm-3">
@@ -33,7 +33,8 @@
                     <div class="card-body">
                         <h5 class="card-title"> {{ produit.nom_s }} </h5>
                         <p class="card-text"> {{ produit.description }}</p>
-                        <h6 class="card-subtitle mb-2 text-muted"> Quantite restante : {{ produit.quantite_restante }} </h6>
+                        <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
+                            : {{ produit.quantite_restante }} </h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
                         <a href="{{ url_for("reservation", id=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
                     </div>
@@ -41,7 +42,7 @@
             </div>
         {% endfor %}
 
-
+    </div>
 
 {% endblock %}
 
