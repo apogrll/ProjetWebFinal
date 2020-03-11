@@ -29,17 +29,17 @@
                     <form>
                         <div class="form-group row">
                             <label for="staticTitle" class="col-sm-6 col-form-label">Réservation de
-                                :  </label>
+                                : {{ produit.nom_s }} </label>
 
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputName">Nom</label>
-                            <input type="nom" class="form-control" id="exampleInputName">
+                            <label for="exampleInputPassword1" value="{{ client.nom_client }}"> Nom </label>
+                            <input type="text" class="form-control" id="exampleInputName">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Prénom</label>
-                            <input type="prenom" class="form-control" id="exampleInputPassword1">
+                            <label for="exampleInputPassword1" placeholder="{{ client.prenom_client }}">Prénom</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
                         </div>
 
                         <div class="form-group form-check">
@@ -57,7 +57,7 @@
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
                                    value="option2">
                             <label class="form-check-label" for="exampleRadios2">
-                                Je prends un menu (Prix : 5 €)
+                                Je prends un menu (Prix : 5,15 €)
                             </label>
                         </div>
                         <h1></h1>

@@ -87,14 +87,15 @@ def afficher_accueil():
 
 @app.route('/')
 def master():
-    return flask.render_template("Master.html.jinja2")
+    client = Client.query.filter_by(id_c=1).first()
+    return flask.render_template("Master.html.jinja2", client=client)
 
 
 @app.route('/reservation/<id>')
 def reservation(id):
-    produit_selct = Produits.query.filter_by(id_s = id).first()
+    produit_select = Produits.query.filter_by(id_s = id).first()
     client = Client.query.filter_by(id_c=1).first()
-    return flask.render_template("Reservation.html.jinja2", produit=produit_selct, client=client)
+    return flask.render_template("Reservation.html.jinja2", produit=produit_select, client=client)
 
 ##########################################################################################
 # LIEN PRODUITS
