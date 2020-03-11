@@ -3,13 +3,13 @@
 
 <html>
 <style>
-    navbar{
+    navbar {
         color: white;
     }
 </style>
 
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #5D0000">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #894545">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,26 +18,28 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" style="font-weight: bold">
-                <a class="nav-link" href="{{ url_for("afficher_accueil") }}" style="color: #e5e7e3"> Accueil <span
+                <a class="nav-link" href="{{ url_for("afficher_accueil") }}" style="color: #49595b"> Accueil <span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat="Sandwichs") }}" style="color: #e5e7e3">Sandwichs </a>
+                <a class="nav-link" href="{{ url_for("produits", cat="Sandwichs") }}"
+                   style="color: #49595b">Sandwichs </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat="Salades") }}" style="color: #e5e7e3">Salades</a>
+                <a class="nav-link" href="{{ url_for("produits", cat="Salades") }}" style="color: #49595b">Salades</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat ="Wraps") }}" style="color: #e5e7e3">Wraps</a>
+                <a class="nav-link" href="{{ url_for("produits", cat ="Wraps") }}" style="color: #49595b">Wraps</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat="Vegetariens") }}" style="color: #e5e7e3">Végétarien</a>
+                <a class="nav-link" href="{{ url_for("produits", cat="Vegetariens") }}" style="color: #49595b">Végétarien</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat="PlatsChauds") }}" style="color: #e5e7e3">Plats Chauds</a>
+                <a class="nav-link" href="{{ url_for("produits", cat="PlatsChauds") }}" style="color: #49595b">Plats
+                    Chauds</a>
             </li>
         </ul>
-        <span class="navbar-text" style="color: #e5e7e3"> {{client.nom_client}} {{ client.prenom_client }}</span>
+        <span class="navbar-text" style="color: #49595b"> {{ client.nom_client }} {{ client.prenom_client }}</span>
     </div>
 
 

@@ -99,15 +99,10 @@ def reservation(id):
 @app.route('/<cat>')
 def produits(cat):
     #quantite_restante = Produits.query.filter_by(categorie=cat).count()
-    client = Client.query.filter_by(id_c=1).first()
     list_produits=Produits.query.filter_by(categorie=cat).all()
-    if len(list_produits) == 0:
-        cat = cat + " sont épuisés"
-    else:
-        cat=cat
+    client = Client.query.filter_by(id_c=1).first()
+
     return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=list_produits, categorie = cat, client=client)
-
-
 
 
 
