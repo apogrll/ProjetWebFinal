@@ -20,31 +20,36 @@ with app.test_request_context():
                    categorie= "Sandwichs",
                    description="Pain au sesame, poulet, tomates ",
                    prix_s="2",
-                   est_epuise=False)
+                   est_epuise=False,
+                  prix_menu= "5,65")
 
     S2 = Produits(nom_s="Sandwich Thon",
                   categorie="Sandwichs",
                   description="Pain de seigle, thon, concombres, salade",
                   prix_s="2",
-                  est_epuise=False)
+                  est_epuise=False,
+                  prix_menu= "5,65")
 
     S3 = Produits(nom_s="Salade César",
                    categorie="Salades",
                    description="Blanc de poulet, parmesan, tomates",
                    prix_s="2",
-                   est_epuise=False)
+                   est_epuise=False,
+                  prix_menu= "5,65")
 
     S4 = Produits(nom_s="Wrap Poulet",
                   categorie="Wraps",
                   description="Blanc de poulet, avocats, salade",
                   prix_s="2",
-                  est_epuise=False)
+                  est_epuise=False,
+                  prix_menu= "5,65")
 
     S5 = Produits(nom_s="Pates au pesto",
                   categorie="PlatsChauds",
                   description="Pesto",
                   prix_s="2",
-                  est_epuise=False)
+                  est_epuise=False,
+                  prix_menu= "5,65")
 
     db.session.add(S1)
     db.session.add(S2)
@@ -120,7 +125,8 @@ def produits(cat):
 @app.route('/viewcafet')
 def viewcafet():
     liste = Produits.query.filter_by().all()
-    return flask.render_template("ViewCafet.html.jinja2", liste=liste)
+    return flask.render_template("ViewCafet.html.jinja2", sandwich_1=liste)
+
 
 #def quantite(prod):
 #    quantite_dict = {}

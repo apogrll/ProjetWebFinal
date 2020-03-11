@@ -9,6 +9,7 @@ class Produits (db.Model):
     quantite_totale = db.Column(db.Integer)
     quantite_restante = db.Column(db.Integer)
     est_epuise = db.Column(db.Boolean)
+    prix_menu = db.Column(db.Integer)
 
 class Client (db.Model):
     id_c = db.Column(db.Integer, primary_key=True)
