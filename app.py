@@ -55,6 +55,14 @@ with app.test_request_context():
     db.session.add(S3)
     db.session.add(S4)
     db.session.add(S5)
+
+    ##########################################################################################
+    #  CREATION BASE DE DONNEES CLIENT
+    ##########################################################################################
+
+    C1 = Client(nom_client="test",
+                prenom_client="test")
+    db.sessions.add(C1)
     db.session.commit()
 
 
