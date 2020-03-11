@@ -108,7 +108,7 @@ def produits(cat):
     list_produits=Produits.query.filter_by(categorie=cat).all()
     client = Client.query.filter_by(id_c=1).first()
 
-    return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=list_produits, categorie = cat, client=client)
+    return flask.render_template("PageCardProduits.html.jinja2", produits=list_produits, categorie = cat, client=client)
 
 #def quantite(prod):
 #    quantite_dict = {}
