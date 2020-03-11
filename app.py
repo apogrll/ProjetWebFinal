@@ -94,7 +94,8 @@ def do_reservation():
     print(flask.request)
     client = Client.query.filter_by(id_c=1).first()
 
-    return flask.render_template('confirmation.html.jinja2', client=client)
+    return flask.render_template("confirmation.html.jinja2", client=client)
+
 
 
 ##########################################################################################
@@ -106,11 +107,13 @@ def produits(cat):
     #quantite_restante = Produits.query.filter_by(categorie=cat).count()
     list_produits=Produits.query.filter_by(categorie=cat).all()
 
+    client = Client.query.filter_by(id_c=1).first()
+
     if len(list_produits) == 0:
         cat = cat + " sont épuisés"
     else:
         cat=cat
-    return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=list_produits, categorie = cat, client=client)
+    return flask.render_template("PageCardProduits.html.jinja2", produits=list_produits, categorie = cat, client=client)
 
 #quantite_totale = Produits.query.filter_by(categorie=  ).count()
 
