@@ -62,7 +62,7 @@ with app.test_request_context():
 
     C1 = Client(nom_client="test",
                 prenom_client="test")
-    db.sessions.add(C1)
+    db.session.add(C1)
     db.session.commit()
 
 
