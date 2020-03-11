@@ -117,10 +117,6 @@ def viewcafet():
     liste = Produits.query.filter_by().all()
     return flask.render_template("ViewCafet.html.jinja2", liste=liste)
 
-    client = Client.query.filter_by(id_c=1).first()
-
-    return flask.render_template("PageCardProduits.html.jinja2", produits=list_produits, categorie = cat, client=client)
-
 #def quantite(prod):
 #    quantite_dict = {}
 #    quantite_totale = Produits.query.filter_by(categorie=prod).count()
