@@ -20,34 +20,51 @@ with app.test_request_context():
     ##########################################################################################
     #  CREATION BASE DE DONNEES PRODUITS
     ##########################################################################################
-    S1 = Produits(nom_s="Sandwich au poulet",
+    S1 = Produits(nom_s="Sandwich Poulet",
                    categorie= "Sandwichs",
-                   description="pain sesame, poulet, tomates ",
+                   description="Pain au sesame, poulet, tomates ",
                    prix_s="2",
                    quantite_totale=5,
                    quantite_restante=1,
                    est_epuise=False)
 
-    S2 = Produits(nom_s="Sandwich au pfbjndo",
+    S2 = Produits(nom_s="Sandwich Thon",
                   categorie="Sandwichs",
-                  description="pain sesame, poulet, tomates ",
+                  description="Pain de seigle, thon, concombres, salade",
                   prix_s="2",
                   quantite_totale=5,
                   quantite_restante=1,
                   est_epuise=False)
 
-    S3 = Produits(nom_s="Salade 1",
+    S3 = Produits(nom_s="Salade César",
                    categorie="Salades",
-                   description="salade",
+                   description="Blanc de poulet, parmesan, tomates",
                    prix_s="2",
                    quantite_totale=5,
                    quantite_restante=4,
                    est_epuise=False)
 
+    S4 = Produits(nom_s="Wrap Poulet",
+                  categorie="Wraps",
+                  description="Blanc de poulet, avocats, salade",
+                  prix_s="2",
+                  quantite_totale=5,
+                  quantite_restante=4,
+                  est_epuise=False)
+
+    S5 = Produits(nom_s="Pates au pesto",
+                  categorie="PlatsChauds",
+                  description="Pesto",
+                  prix_s="2",
+                  quantite_totale=5,
+                  quantite_restante=4,
+                  est_epuise=False)
 
     db.session.add(S1)
     db.session.add(S2)
     db.session.add(S3)
+    db.session.add(S4)
+    db.session.add(S5)
 
 
     db.session.commit()
@@ -112,7 +129,7 @@ def vegetariens():
 @app.route('/Platschauds')
 def platschauds():
     platschauds_all = Produits.query.filter_by(categorie="PlatsChauds").all()
-    return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=platschauds_all, categorie=platschauds)
+    return flask.render_template("PageCardProduits.html.jinja2", sandwichs_1=platschauds_all)
 
 
 
