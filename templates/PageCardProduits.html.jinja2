@@ -8,6 +8,10 @@
 {% block body %}
 
     <style>
+        body {
+            background-color: #ecedea;
+        }
+
         h1 {
             font-weight: bold;
             color: #061b1e;
@@ -20,10 +24,7 @@
     </style>
 
 
-
     <h1 class="title"> Nos {{ categorie }} </h1>
-
-
 
     <h3> Faites votre selection </h3>
     <div class="row">
@@ -32,7 +33,7 @@
         <!--  CARD DE /SANDWICHS -->
         <!--  ----------------------------------------------------------------------------------------------------  -->
 
-        {% for produit in sandwichs_1 %}
+        {% for produit in produits %}
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body">
