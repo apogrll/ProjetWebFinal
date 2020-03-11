@@ -88,7 +88,7 @@ def reservation(id):
 ##########################################################################################
 @app.route('/<cat>')
 def produits(cat):
-    quantite_restante = Produits.query.filter_by(categorie=cat).count()
+    #quantite_restante = Produits.query.filter_by(categorie=cat).count()
 
     list_produits=Produits.query.filter_by(categorie=cat).all()
     if len(list_produits) == 0:
