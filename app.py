@@ -24,40 +24,30 @@ with app.test_request_context():
                    categorie= "Sandwichs",
                    description="Pain au sesame, poulet, tomates ",
                    prix_s="2",
-                   quantite_totale=5,
-                   quantite_restante=1,
                    est_epuise=False)
 
     S2 = Produits(nom_s="Sandwich Thon",
                   categorie="Sandwichs",
                   description="Pain de seigle, thon, concombres, salade",
                   prix_s="2",
-                  quantite_totale=5,
-                  quantite_restante=1,
                   est_epuise=False)
 
     S3 = Produits(nom_s="Salade César",
                    categorie="Salades",
                    description="Blanc de poulet, parmesan, tomates",
                    prix_s="2",
-                   quantite_totale=5,
-                   quantite_restante=4,
                    est_epuise=False)
 
     S4 = Produits(nom_s="Wrap Poulet",
                   categorie="Wraps",
                   description="Blanc de poulet, avocats, salade",
                   prix_s="2",
-                  quantite_totale=5,
-                  quantite_restante=4,
                   est_epuise=False)
 
     S5 = Produits(nom_s="Pates au pesto",
                   categorie="PlatsChauds",
                   description="Pesto",
                   prix_s="2",
-                  quantite_totale=5,
-                  quantite_restante=4,
                   est_epuise=False)
 
     db.session.add(S1)
@@ -65,8 +55,6 @@ with app.test_request_context():
     db.session.add(S3)
     db.session.add(S4)
     db.session.add(S5)
-
-
     db.session.commit()
 
 
@@ -100,10 +88,15 @@ def reservation(id):
 ##########################################################################################
 @app.route('/<cat>')
 def produits(cat):
+    quantite_restante = Produits.query.filter_by(categorie=cat).count()
+
     list_produits=Produits.query.filter_by(categorie=cat).all()
     if len(list_produits) == 0:
         cat = cat + " sont épuisés"
     return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=list_produits, categorie = cat)
+
+
+
 
 
 ##########################################################################################
