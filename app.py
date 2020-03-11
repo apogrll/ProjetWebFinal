@@ -87,6 +87,8 @@ def reservation(id):
 @app.route('/confirmation/', methods=["POST"])
 def do_reservation():
     print(flask.request)
+    #update bdd a faire
+
     client = Client.query.filter_by(id_c=1).first()
 
     return flask.render_template("confirmation.html.jinja2", client=client)
