@@ -89,13 +89,15 @@ def reservation(id):
     client = Client.query.filter_by(id_c=1).first()
     return flask.render_template("Reservation.html.jinja2", produit=produit_select, client=client)
 
-@app.route('/confirmation/<id>', methods=["POST"])
-def do_reservation(id):
+@app.route('/confirmation/<id>/<client>', methods=["POST"])
+def do_reservation(id, client):
     print(flask.request)
     #update bdd a faire
     pdt_res = Produits.query.filter_by(id_s=id).first()
-    Reservation.append(pdt_res.id_s)
+    resa = Reservation(nom=client.nom_client, prenom=client.prenom_client, produit=pdt_res)
+    db.session.add(resa)
     Produits.delete(pdt_res)
+    db.session.commit()
     client = Client.query.filter_by(id_c=1).first()
 
     return flask.render_template("confirmation.html.jinja2", client=client)
@@ -126,7 +128,7 @@ def produits(cat):
 ##########################################################################################
 @app.route('/viewcafet')
 def viewcafet():
-    liste = Produits.query.filter_by().all()
+    liste = Reservation.query.all()
     return flask.render_template("ViewCafet.html.jinja2", sandwich_1=liste)
 
 
