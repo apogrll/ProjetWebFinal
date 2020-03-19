@@ -89,11 +89,13 @@ def reservation(id):
     client = Client.query.filter_by(id_c=1).first()
     return flask.render_template("Reservation.html.jinja2", produit=produit_select, client=client)
 
-@app.route('/confirmation/', methods=["POST"])
-def do_reservation():
+@app.route('/confirmation/<id>', methods=["POST"])
+def do_reservation(id):
     print(flask.request)
     #update bdd a faire
-
+    pdt_res = Produits.query.filter_by(id_s=id).first()
+    Reservation.append(pdt_res.id_s)
+    Produits.delete(pdt_res)
     client = Client.query.filter_by(id_c=1).first()
 
     return flask.render_template("confirmation.html.jinja2", client=client)
