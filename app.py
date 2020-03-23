@@ -123,12 +123,13 @@ def produits(cat):
 @app.route('/viewcafet')
 def viewcafet():
     liste = Produits.query.filter_by().all()
+    quantite_totale = Produits.query.filter_by(categorie=prod).count()
     return flask.render_template("ViewCafet.html.jinja2", sandwich_1=liste)
 
 
 #def quantite(prod):
 #    quantite_dict = {}
-#    quantite_totale = Produits.query.filter_by(categorie=prod).count()
+#
 #    quantite_restante = Produits.query.filter_by
 #    return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=quantite_totale)
 
