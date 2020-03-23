@@ -73,7 +73,10 @@
                         <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
                             : {{ produit.quantite_restante }} </h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
-                        <a style="color: #FFFFFF; background-color: lightskyblue; font-weight: bold" href="{{ url_for("reservation", id=produit.id_s) }}" class="btn"> RESERVER </a>
+                        <a type="button"
+                           style="font-weight: bold"
+                           href="{{ url_for("reservation", id=produit.id_s) }}"
+                           class="btn btn-outline-primary"> RESERVER </a>
                     </div>
                 </div>
  </div>

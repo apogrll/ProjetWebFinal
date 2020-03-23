@@ -46,6 +46,9 @@
         a {
             color: #000000;
             font-family: Geneva;
+            background-color: lightskyblue;
+
+
         }
 
     </style>
@@ -53,6 +56,7 @@
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Affichage -->
     <h1> TOUS NOS PRODUITS </h1>
+
 
     {% for category_name in categories_dict %}
         <h2> Nos {{ category_name }}</h2>
@@ -70,12 +74,15 @@
                             <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
                                 : {{ produit.quantite_restante }} </h6>
                             <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
-                            <div class="hover">
-                            <a style="color: #000000; background-color: lightskyblue; font-weight: bold"
-                               href="{{ url_for("reservation", id=produit.id_s) }}"class="btn"> RESERVER </a>
+                            <a type="button"
+                               style="font-weight: bold ; border-color:lightskyblue ;"
+                               href="{{ url_for("reservation", id=produit.id_s) }}"
+                               class="btn btn-outline-primary" > RESERVER
+                            </a>
+
                         </div>
                     </div>
-                            </div>
+
 
  </div>
 
@@ -87,8 +94,10 @@
         <!-- Bouton "Voir plus" -->
         <div class="row">
 
-                <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("produits", cat=category_name) }}"
-                   style="color: black; background-color: lightgrey; font-weight: bold"> Voir plus
+                <a type="button"
+                   class="btn btn-outline-secondary btn-lg btn-block"
+                   href="{{ url_for("produits", cat=category_name) }}"
+                   style="font-weight: bold " > Voir plus
                     de {{ category_name }}</a>
           </div>
 
