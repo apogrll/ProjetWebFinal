@@ -94,7 +94,7 @@ def reservation(id):
     client = Client.query.filter_by(id_c=1).first()
     return flask.render_template("Reservation.html.jinja2", produit=produit_select, client=client)
 
-@app.route('/confirmation/<id>', methods=["POST"])
+@app.route('/confirmation/<id>', methods=["GET","POST"])
 def do_reservation(id):
     form = flask.request.form
     client = Client.query.filter_by(id_c=1).first()
@@ -166,7 +166,7 @@ def viewcafet_produits():
 def viewcafet_nouveau():
     return flask.render_template("CafetEntreeSandwich.html.jinja2")
 
-@app.route('/traitement')
+@app.route('/traitement', methods=["GET", "POST"])
 def entree_sandwich():
     form = flask.request.form
     resultat = traitement_ajout(form)
@@ -174,11 +174,12 @@ def entree_sandwich():
 
 
 def traitement_ajout(form):
+    qte = int(form.get('quantité'))
     prod = Produits(nom_s=form.get('nom_sandwich'),
                   categorie=form.get('categorie'),
                   description=form.get('description'),
                   prix_s=form.get('prix_seul'),
-                  quantite_restante=form.get('quantite'),
+                  quantite_restante=qte,
                   est_epuise=False,
                   prix_menu=form.get('prix_menu'))
     db.session.add(prod)
