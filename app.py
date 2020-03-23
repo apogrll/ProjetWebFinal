@@ -98,9 +98,17 @@ def reservation(id):
 def do_reservation(id):
     form = flask.request.form
     client = Client.query.filter_by(id_c=1).first()
-
     pdt_res = Produits.query.filter_by(id_s=id).first()
-    resa = Reservation(nom=form.get('Nom_res'), prenom=form.get('Prenom_res'), produit=pdt_res.nom_s)
+
+    subv = "Non"
+    if form.get('has_subvention'):
+        subv = "Oui"
+
+    menu = "Non"
+    if form.get('ask_menu') == 'avecMenu' :
+        menu = "Oui"
+
+    resa = Reservation(nom=form.get('Nom_res'), prenom=form.get('Prenom_res'), produit=pdt_res.nom_s, menu=menu, subvention = subv)
     if pdt_res.quantite_restante>1:
         pdt_res.quantite_restante = pdt_res.quantite_restante - 1
     elif pdt_res.quantite_restante==1:
@@ -136,19 +144,37 @@ def produits(cat):
 ##########################################################################################
 @app.route('/viewcafet')
 def viewcafet():
+    return flask.render_template("MasterCafet.html.jinja2")
+
+
+@app.route('/viewcafet/resa')
+def viewcafet_resa():
     liste = Reservation.query.all()
     client = Client.query.filter_by(id_c=1).first()
 
-    return flask.render_template("ViewCafet.html.jinja2", reservations=liste)
+    return flask.render_template("CafetReservations.jinja2", reservations=liste)
+
+@app.route('/viewcafet/liste')
+def viewcafet_produits():
+    categories_dict = {}
+    categories1 = set([p.categorie for p in Produits.query.all()])
+    for category_name in categories1:
+        categories_dict[category_name] = Produits.query.filter_by(categorie=category_name).filter_by(est_epuise=False).all()
+    return flask.render_template("CafetSandwichsDispo.jinja2", categories_dict=categories_dict)
+
+@app.route('/viewcafet/nouveau')
+def viewcafet_nouveau():
+    return flask.render_template("CafetEntreeSandwich.html.jinja2")
+
+@app.route('/viewcafet/traitement')
+def entree_sandwich():
+    form = flask.request.form
+    traitement_ajout(form)
+    return flask.render_template("CafetSandwichsDispos.html.jinja2")
 
 
-
-#def quantite(prod):
-#    quantite_dict = {}
-#
-#    quantite_restante = Produits.query.filter_by
-#    return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=quantite_totale)
-
+def traitement_ajout(form):
+    return 'bonjour'
 
 
 ##########################################################################################
