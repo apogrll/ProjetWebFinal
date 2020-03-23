@@ -99,7 +99,6 @@ def do_reservation(id):
     print(flask.request)
     client = Client.query.filter_by(id_c=1).first()
 
-    #update bdd a faire
     pdt_res = Produits.query.filter_by(id_s=id).first()
     resa = Reservation(nom=client.nom_client, prenom=client.prenom_client, produit=pdt_res.nom_s)
     if pdt_res.quantite_restante>1:
