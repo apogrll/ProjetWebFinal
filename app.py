@@ -144,13 +144,20 @@ def produits(cat):
 # VIEW CAFETERIA
 ##########################################################################################
 @app.route('/viewcafet')
-def viewcafet():
+def viewcafet_resa():
     liste = Reservation.query.all()
     client = Client.query.filter_by(id_c=1).first()
 
     return flask.render_template("ViewCafet.html.jinja2", reservations=liste)
 
+@app.route('/viewcafet/liste')
+def viewcafet_produits():
+    liste=Produits.query.all()
+    return flask.render_template("CafetSandwichsDispo.jinja2", list=liste)
 
+@app.route('/viewcafet/nouveau')
+def viewcafet_nouveau():
+    return flask.render_template("CafetEntreeSandwich.html.jinja2")
 
 #def quantite(prod):
 #    quantite_dict = {}

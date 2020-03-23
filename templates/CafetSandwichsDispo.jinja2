@@ -1,0 +1,49 @@
+{% extends "MasterCafet.html.jinja2" %}
+
+
+<div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ url_for("do_reservation", id=produit.id_s) }}" method="post">
+                        <div class="form-group row">
+                            <label for="staticTitle" class="col-sm-6 col-form-label">Réservation de
+                                : {{ produit.nom_s }} </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputSurname"> Nom </label>
+                            <input type="text" class="form-control" id="Nom_res" name="Nom_res"
+                                   value="{{ client.nom_client }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName">Prénom</label>
+                            <input type="text" class="form-control" id="Prenom_res" name="Prenom_res"
+                                   value="{{ client.prenom_client }}">
+                        </div>
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="has_subvention" name="has_subvention">
+                            <label class="form-check-label" for="exampleCheck1">J'ai la subvention étudiante</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ask_menu" id="produit_seul"
+                                   value="sansMenu" checked>
+                            <label class="form-check-label" for="sans_menu">
+                                Je prends le sandwich seul (Prix : {{ produit.prix_s }} €)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ask_menu" id="produit_menu"
+                                   value="avecMenu">
+                            <label class="form-check-label" for="avec_menu">
+                                Je prends un menu (Prix : {{ produit.prix_menu }} €)
+                            </label>
+                        </div>
+                        <h1></h1>
+                        <button style="color: #000000; background-color: #a94772; font-weight: bold" type="submit" class="btn"> Réserver</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

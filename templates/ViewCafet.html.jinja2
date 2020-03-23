@@ -1,23 +1,6 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-<head>
-    <title> VIEW CAFET </title>
-</head>
+{% extends "MasterCafet.html.jinja2" %}
 
 {% block body %}
-    <style>
-        body {
-            background-color: azure;
-        }
-
-        form {
-            font-palette: light;
-            font-style: revert;
-            color: black;
-        }
-    </style>
-
     <h1 class="title"> Réservations du jour </h1>
 
     <table class="table">
@@ -49,7 +32,5 @@
         </tbody>
 
     </table>
-
-
 
 {% endblock %}
