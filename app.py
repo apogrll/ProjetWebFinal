@@ -166,11 +166,11 @@ def viewcafet_produits():
 def viewcafet_nouveau():
     return flask.render_template("CafetEntreeSandwich.html.jinja2")
 
-@app.route('/viewcafet/traitement')
+@app.route('/traitement')
 def entree_sandwich():
     form = flask.request.form
-    traitement_ajout(form)
-    return flask.render_template("CafetSandwichsDispos.html.jinja2")
+    resultat = traitement_ajout(form)
+    return flask.render_template("CafetValidation.html.jinja2", message=resultat)
 
 
 def traitement_ajout(form):
@@ -183,6 +183,7 @@ def traitement_ajout(form):
                   prix_menu=form.get('prix_menu'))
     db.session.add(prod)
     db.session.commit()
+    return 'Votre produit a été ajouté à la liste'
 
 
 ##########################################################################################
