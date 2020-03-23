@@ -28,7 +28,7 @@
         <thead>
 
         <tr>
-
+            <th scope="row"></th>
             <th scope="col">Produit Commandé</th>
             <th scope="col">Nom client</th>
             <th scope="col"> Prénom client</th>
@@ -36,18 +36,19 @@
         </thead>
 
         <tbody>
-        {% for produit in sandwich_1 %}
+            {% for res in reservations %}
+                <tr>
+                    <th scope="row"></th>
+                    <td>{{ res.produit }}</td>
+                    <td>{{ res.nom }}</td>
+                    <td>{{ res.prenom }}</td>
+                </tr>
+            {% endfor %}
 
-            <tr>
+        </tbody>
 
-                <td>{{ produit.nom_s }}</td>
-                <td>{{ client.nom_client }}</td>
-                <td>{{ client.prenom_client }}</td>
-            </tr>
-            </tbody>
+    </table>
 
-            </table>
 
-        {% endfor %}
 
 {% endblock %}
