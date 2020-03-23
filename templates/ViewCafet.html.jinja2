@@ -29,10 +29,9 @@
 
         <tr>
 
-            <th scope="col">#</th>
-            <th scope="col">Produits Commandés</th>
-            <th scope="col">Quantité restante</th>
-            <th scope="col">Client</th>
+            <th scope="col">Produit Commandé</th>
+            <th scope="col">Nom client</th>
+            <th scope="col"> Prénom client</th>
         </tr>
         </thead>
 
@@ -41,10 +40,9 @@
 
             <tr>
 
-                <th scope="row">1</th>
                 <td>{{ produit.nom_s }}</td>
-                <td>{{ produit.quantite_restante }}</td>
-                <td>@mdo</td>
+                <td>{{ client.nom_client }}</td>
+                <td>{{ client.prenom_client }}</td>
             </tr>
             </tbody>
 
