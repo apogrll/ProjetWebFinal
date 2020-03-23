@@ -15,35 +15,37 @@
 
         h1 {
             font-weight: bold;
-            color: #89023e;
-            font-family: Gabriola;
+            color: #000000;
+            font-family: Geneva;
+            text-shadow: 1px 1px 1px black;
         }
 
         h2 {
             font-weight: bold;
-            color: #9e3061;
-            font-family: Gabriola;
+            color: #000000;
+            font-family: Geneva;
         }
 
         h5 {
             color: #000000;
-            font-family: Gabriola;
+            font-family: Geneva;
             font-weight: bold;
+
         }
 
         p {
             color: #000000;
-            font-family: Gabriola;
+            font-family: Geneva;
         }
 
         h6 {
             color: #000000;
-            font-family: Gabriola;
+            font-family: Geneva;
         }
 
         a {
             color: #000000;
-            font-family: Gabriola;
+            font-family: Geneva;
         }
 
     </style>
@@ -56,21 +58,26 @@
         <h2> Nos {{ category_name }}</h2>
 
         <div class="row">
+
             {% for produit in categories_dict[category_name] %}
 
                 <div class="col-sm-3">
-
-                    <div class="card">
+                    <div class="card border -dark mb-3" style="max-width: 18rem;">
+                        <div class="card shadow" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title"> {{ produit.nom_s }} </h5>
                             <p class="card-text"> {{ produit.description }}</p>
                             <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
                                 : {{ produit.quantite_restante }} </h6>
                             <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
-                            <a style="color: #000000; background-color: #e55090; font-weight: bold"
-                               href="{{ url_for("reservation", id=produit.id_s) }}" class="btn"> -> RESERVER !</a>
+                            <div class="hover">
+                            <a style="color: #000000; background-color: lightskyblue; font-weight: bold"
+                               href="{{ url_for("reservation", id=produit.id_s) }}"class="btn"> RESERVER </a>
                         </div>
                     </div>
+                            </div>
+
+ </div>
 
                 </div>
             {% endfor %}
@@ -79,12 +86,11 @@
         <h1></h1>
         <!-- Bouton "Voir plus" -->
         <div class="row">
-            <div class="col-sm-4">
+
                 <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("produits", cat=category_name) }}"
-                   style="color: #000000; background-color: #f8f4ea; font-weight: bold">Voir plus
+                   style="color: black; background-color: lightgrey; font-weight: bold"> Voir plus
                     de {{ category_name }}</a>
-            </div>
-        </div>
+          </div>
 
         <h1></h1>
 
@@ -92,6 +98,6 @@
     {% endfor %}
 
 <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("viewcafet") }}"
-                   style="color: #000000; background-color: #39b8bf; font-weight: bold">Je suis un membre de la caféteria</a>
+                   style="color: #000000; background-color: lightskyblue; font-weight: bold">Je suis un membre de la caféteria</a>
 
 {% endblock %}

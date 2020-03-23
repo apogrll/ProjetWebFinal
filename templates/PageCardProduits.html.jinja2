@@ -14,14 +14,14 @@
 
         h1 {
             font-weight: bold;
-            color: #89023e;
-            font-family: Gabriola;
+            color: #000000;
+            font-family: Geneva;
         }
 
         h2 {
             font-weight: bold;
-            color: #9e3061;
-            font-family: Gabriola;
+            color: #000000;
+            font-family: Geneva;
         }
 
         h5 {
@@ -32,12 +32,12 @@
 
         p {
             color: #000000;
-            font-family: Gabriola;
+            font-family: Geneva;
         }
 
         h6 {
             color: #000000;
-            font-family: Gabriola;
+            font-family: Geneva;
         }
 
         a {
@@ -47,7 +47,7 @@
 
         h3{
             color: #000000;
-            font-family: Gabriola;
+            font-family: Geneva;
         }
 
     </style>
@@ -62,18 +62,21 @@
         <!--  CARD DE /SANDWICHS -->
         <!--  ----------------------------------------------------------------------------------------------------  -->
 
+
         {% for produit in produits %}
             <div class="col-sm-3">
-                <div class="card">
+                <div class="card border -dark mb-3" style="max-width: 18rem;">
+                   <div class="card shadow" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title"> {{ produit.nom_s }} </h5>
                         <p class="card-text"> {{ produit.description }}</p>
                         <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
                             : {{ produit.quantite_restante }} </h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
-                        <a style="color: #000000; background-color: #a94772; font-weight: bold" href="{{ url_for("reservation", id=produit.id_s) }}" class="btn"> -> RESERVER !</a>
+                        <a style="color: #FFFFFF; background-color: lightskyblue; font-weight: bold" href="{{ url_for("reservation", id=produit.id_s) }}" class="btn"> RESERVER </a>
                     </div>
                 </div>
+ </div>
             </div>
         {% endfor %}
 

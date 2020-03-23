@@ -22,7 +22,8 @@
 
 <style>
     nav {
-        background-color: #39b8bf;
+        background-color: lightskyblue ;
+
     }
 
     span {
@@ -30,45 +31,45 @@
     }
 
     a {
-        color: #000000;
-        font-family: Gabriola;
+        color: #FFFFFF;
+        font-family: Geneva;
         font-size: x-large;
     }
 
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg ">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto z-depth-4">
             <li class="nav-item" style="font-weight: bold">
-                <a class="nav-link" href="{{ url_for("afficher_accueil") }}" style="color:#000000"
-                   style="font-family: Gabriola" style="font-size: large"> Accueil <span
+                <a class="nav-link" href="{{ url_for("afficher_accueil") }}" style="color:#FFFFFF"
+                   style="font-family: Geneva" style="font-size: large" $enable-shadow> Accueil <span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat="Sandwichs") }}" style="color:#000000"
-                   style="font-family: Gabriola">Sandwichs </a>
+                <a class="nav-link" href="{{ url_for("produits", cat="Sandwichs") }}" style="color:#FFFFFF"
+                   style="font-family: Geneva">Sandwichs </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat="Salades") }}" style="color:#000000"
-                   style="font-family: Gabriola">Salades</a>
+                <a class="nav-link" href="{{ url_for("produits", cat="Salades") }}" style="color:#FFFFFF"
+                   style="font-family: Geneva">Salades</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat ="Wraps") }}" style="color:#000000"
-                   style="font-family: Gabriola">Wraps</a>
+                <a class="nav-link" href="{{ url_for("produits", cat ="Wraps") }}" style="color:#FFFFFF"
+                   style="font-family: Geneva">Wraps</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat="Vegetariens") }}" style="color:#000000"
-                   style="font-family: Gabriola">Végétarien</a>
+                <a class="nav-link" href="{{ url_for("produits", cat="Vegetariens") }}" style="color:#FFFFFF"
+                   style="font-family: Geneva">Végétarien</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for("produits", cat="PlatsChauds") }}" style="color:#000000"
-                   style="font-family: Gabriola">Plats
+                <a class="nav-link" href="{{ url_for("produits", cat="PlatsChauds") }}" style="color:#FFFFFF"
+                   style="font-family: Geneva">Plats
                     Chauds</a>
             </li>
         </ul>
