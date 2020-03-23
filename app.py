@@ -121,7 +121,6 @@ def do_reservation(id):
 @app.route('/<cat>')
 def produits(cat):
 
-    #quantite_restante = Produits.query.filter_by(categorie=cat).count()
     list_produits=Produits.query.filter_by(categorie=cat).filter_by(est_epuise=False).all()
 
     client = Client.query.filter_by(id_c=1).first()

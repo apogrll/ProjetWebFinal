@@ -6,7 +6,6 @@ class Produits (db.Model):
     categorie = db.Column(db.Text)
     description = db.Column(db.Text)
     prix_s = db.Column(db.Integer)
-    quantite_totale = db.Column(db.Integer)
     quantite_restante = db.Column(db.Integer)
     est_epuise = db.Column(db.Boolean)
     prix_menu = db.Column(db.Integer)
