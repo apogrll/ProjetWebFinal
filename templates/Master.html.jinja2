@@ -72,8 +72,9 @@
                    style="color:#FFFFFF; font-family: Geneva">Plats
                     Chauds</a>
             </li>
-            <span class="navbar-text" style="color:#FFFFFF"> {{ client.nom_client }} {{ client.prenom_client }}</span>
         </ul>
+        <span class="navbar-text" style="color:#FFFFFF"> {{ client.nom_client }} {{ client.prenom_client }}</span>
+        <a class ="nav-link" href="{{ url_for("viewcafet") }}" style="color:#FFFFFF; font-family: Geneva"> Caféteria </a>
 
     </div>
 
