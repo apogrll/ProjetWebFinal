@@ -101,13 +101,13 @@ def do_reservation(id):
 
     pdt_res = Produits.query.filter_by(id_s=id).first()
 
-    subv = False
+    subv = "Non"
     if form.get('has_subvention'):
-        subv = True
+        subv = "Oui"
 
-    menu = False
+    menu = "Non"
     if form.get('ask_menu') == 'avecMenu' :
-        menu = True
+        menu = "Oui"
 
     resa = Reservation(nom=form.get('Nom_res'), prenom=form.get('Prenom_res'), produit=pdt_res.nom_s, menu=menu, subvention = subv)
     if pdt_res.quantite_restante>1:
