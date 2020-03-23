@@ -139,7 +139,9 @@ def produits(cat):
 @app.route('/viewcafet')
 def viewcafet():
     liste = Reservation.query.all()
-    return flask.render_template("ViewCafet.html.jinja2", sandwich_1=liste)
+    client = Client.query.filter_by(id_c=1).first()
+
+    return flask.render_template("ViewCafet.html.jinja2", sandwich_1=liste, client=client)
 
 
 #def quantite(prod):
