@@ -1,49 +1,89 @@
 {% extends "MasterCafet.html.jinja2" %}
+
+{% block body %}
+
+    <h1> Nouveau produit </h1>
 <div class="card">
     <div class="card-body">
         <div class="card">
             <div class="card-body">
                 <form action="{{ url_for("entree_sandwich") }}" method="post">
-                    <div class="form-group row">
-                        <label for="staticTitle" class="col-sm-6 col-form-label">Réservation de
-                            : {{ produit.nom_s }} </label>
+                    <!-- Nom du produit -->
+                    <div class="form-group">
+                        <label for="exampleInputSurname" style="font-weight: bold"> Nom du produit </label>
+                        <input type="text" class="form-control" id="Nom_sandwich" name="nom_sandwich">
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleInputSurname"> Nom </label>
-                        <input type="text" class="form-control" id="Nom_res" name="Nom_res"
-                               value="{{ client.nom_client }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputName">Prénom</label>
-                        <input type="text" class="form-control" id="Prenom_res" name="Prenom_res"
-                               value="{{ client.prenom_client }}">
-                    </div>
-
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="has_subvention" name="has_subvention">
-                        <label class="form-check-label" for="exampleCheck1">J'ai la subvention étudiante</label>
-                    </div>
+                    <!-- Catégorie du produit -->
+                    <label for="exampleInputSurname" style="font-weight: bold"> Catégorie du produit </label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ask_menu" id="produit_seul"
-                               value="sansMenu" checked>
+                        <input class="form-check-input" type="radio" name="categorie" id="produit"
+                               value="Sandwich" checked>
                         <label class="form-check-label" for="sans_menu">
-                            Je prends le sandwich seul (Prix : {{ produit.prix_s }} €)
+                            Sandwich
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ask_menu" id="produit_menu"
-                               value="avecMenu">
-                        <label class="form-check-label" for="avec_menu">
-                            Je prends un menu (Prix : {{ produit.prix_menu }} €)
+                        <input class="form-check-input" type="radio" name="categorie" id="produit"
+                               value="PlatChaud">
+                        <label class="form-check-label" for="sans_menu">
+                            Plat Chaud
                         </label>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="categorie" id="produit"
+                               value="Salade">
+                        <label class="form-check-label" for="sans_menu">
+                            Salade
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="categorie" id="produit"
+                               value="Wrap">
+                        <label class="form-check-label" for="sans_menu">
+                            Wrap
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="categorie" id="produit"
+                               value="Vege">
+                        <label class="form-check-label" for="sans_menu">
+                            Vegetarien
+                        </label>
+                    </div>
+                    <h1> </h1>
+
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="exampleInputSurname" style="font-weight: bold"> Ingrédients </label>
+                        <input type="text" class="form-control" id="description" name="description">
+                    </div>
+
+                    <!-- Prix -->
+                    <div class="form-group">
+                        <label for="exampleInputSurname" style="font-weight: bold"> Prix du sandwich seul </label>
+                        <input type="text" class="form-control" id="description" name="prix_seul">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputSurname" style="font-weight: bold"> Prix du sandwich avec menu </label>
+                        <input type="text" class="form-control" id="description" name="prix_menu">
+                    </div>
+
+                    <!-- Quantite disponible -->
+                    <div class="form-group">
+                        <label for="exampleInputSurname" style="font-weight: bold"> Quantité disponible </label>
+                        <input type="text" class="form-control" id="description" name="quantité">
+                    </div>
+
                     <h1></h1>
-                    <button style="color: #000000; background-color: #a94772; font-weight: bold" type="submit"
-                            class="btn"> Réserver
+                    <button style="color: #000000; background-color: lightskyblue; font-weight: bold" type="submit"
+                            class="btn"> Confirmer
                     </button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+{% endblock %}

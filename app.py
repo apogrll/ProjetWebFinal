@@ -166,15 +166,15 @@ def viewcafet_produits():
 def viewcafet_nouveau():
     return flask.render_template("CafetEntreeSandwich.html.jinja2")
 
+@app.route('/viewcafet/traitement')
 def entree_sandwich():
     form = flask.request.form
+    traitement_ajout(form)
+    return flask.render_template("CafetSandwichsDispos.html.jinja2")
 
-#def quantite(prod):
-#    quantite_dict = {}
-#
-#    quantite_restante = Produits.query.filter_by
-#    return flask.render_template("PageCardProduits.html.jinja2", sandwich_1=quantite_totale)
 
+def traitement_ajout(form):
+    return 'bonjour'
 
 
 ##########################################################################################
