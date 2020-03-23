@@ -17,7 +17,7 @@
             font-weight: bold;
             color: #000000;
             font-family: Geneva;
-            text-shadow: 1px 1px 1px black;
+
         }
 
         h2 {
@@ -46,7 +46,7 @@
         a {
             color: #000000;
             font-family: Geneva;
-            background-color: lightskyblue;
+
 
 
         }
@@ -55,7 +55,7 @@
 
     <!-- ------------------------------------------------------------------------------------------------ -->
     <!-- Affichage -->
-    <h1> TOUS NOS PRODUITS </h1>
+    <h1> Tous nos produits </h1>
 
 
     {% for category_name in categories_dict %}
@@ -77,7 +77,7 @@
                             <a type="button"
                                style="font-weight: bold ; border-color:lightskyblue ;"
                                href="{{ url_for("reservation", id=produit.id_s) }}"
-                               class="btn btn-outline-primary" > RESERVER
+                               class="btn btn-outline-info" > RESERVER
                             </a>
 
                         </div>
@@ -107,6 +107,6 @@
     {% endfor %}
 
 <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("viewcafet") }}"
-                   style="color: #000000; background-color: lightskyblue; font-weight: bold">Je suis un membre de la caféteria</a>
+                   style="color: #000000; background-color: #17a2b8; font-weight: bold">Je suis un membre de la caféteria</a>
 
 {% endblock %}
