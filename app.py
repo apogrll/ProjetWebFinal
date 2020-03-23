@@ -20,6 +20,7 @@ with app.test_request_context():
                    categorie= "Sandwichs",
                    description="Pain au sesame, poulet, tomates ",
                    prix_s="2",
+                  quantite_restante=5,
                    est_epuise=False,
                   prix_menu= "5,65")
 
@@ -27,6 +28,7 @@ with app.test_request_context():
                   categorie="Sandwichs",
                   description="Pain de seigle, thon, concombres, salade",
                   prix_s="2",
+                  quantite_restante=5,
                   est_epuise=False,
                   prix_menu= "5,65")
 
@@ -34,13 +36,15 @@ with app.test_request_context():
                    categorie="Salades",
                    description="Blanc de poulet, parmesan, tomates",
                    prix_s="2",
-                   est_epuise=False,
+                  quantite_restante=5,
+                  est_epuise=False,
                   prix_menu= "5,65")
 
     S4 = Produits(nom_s="Wrap Poulet",
                   categorie="Wraps",
                   description="Blanc de poulet, avocats, salade",
                   prix_s="2",
+                  quantite_restante=5,
                   est_epuise=False,
                   prix_menu= "5,65")
 
@@ -48,6 +52,7 @@ with app.test_request_context():
                   categorie="PlatsChauds",
                   description="Pesto",
                   prix_s="2",
+                  quantite_restante=5,
                   est_epuise=False,
                   prix_menu= "5,65")
 
@@ -75,7 +80,7 @@ def afficher_accueil():
     categories_dict = {}
     categories1 = set([p.categorie for p in Produits.query.all()])
     for category_name in categories1:
-        categories_dict[category_name] = Produits.query.filter_by(categorie=category_name).all()
+        categories_dict[category_name] = Produits.query.filter_by(categorie=category_name).filter_by(est_epuise=False).all()
     return flask.render_template("Accueil.html.jinja2", categories_dict=categories_dict, client=client)
 
 @app.route('/')
@@ -89,10 +94,22 @@ def reservation(id):
     client = Client.query.filter_by(id_c=1).first()
     return flask.render_template("Reservation.html.jinja2", produit=produit_select, client=client)
 
-@app.route('/confirmation/', methods=["POST"])
-def do_reservation():
+@app.route('/confirmation/<id>', methods=["POST"])
+def do_reservation(id):
     print(flask.request)
     client = Client.query.filter_by(id_c=1).first()
+
+    #update bdd a faire
+    pdt_res = Produits.query.filter_by(id_s=id).first()
+    resa = Reservation(nom=client.nom_client, prenom=client.prenom_client, produit=pdt_res.nom_s)
+    if pdt_res.quantite_restante>1:
+        pdt_res.quantite_restante = pdt_res.quantite_restante - 1
+    elif pdt_res.quantite_restante==1:
+        pdt_res.quantite_restante=0
+        pdt_res.est_epuise = True
+
+    db.session.add(resa)
+    db.session.commit()
 
     return flask.render_template("confirmation.html.jinja2", client=client)
 
@@ -104,8 +121,7 @@ def do_reservation():
 @app.route('/<cat>')
 def produits(cat):
 
-    #quantite_restante = Produits.query.filter_by(categorie=cat).count()
-    list_produits=Produits.query.filter_by(categorie=cat).all()
+    list_produits=Produits.query.filter_by(categorie=cat).filter_by(est_epuise=False).all()
 
     client = Client.query.filter_by(id_c=1).first()
 
@@ -124,6 +140,9 @@ def produits(cat):
 def viewcafet():
     liste = Produits.query.filter_by().all()
     quantite_totale = Produits.query.filter_by(categorie=prod).count()
+
+    liste = Reservation.query.all()
+
     return flask.render_template("ViewCafet.html.jinja2", sandwich_1=liste)
 
 

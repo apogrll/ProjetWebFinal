@@ -7,19 +7,43 @@
 
 {% block body %}
 
+
     <style>
         body {
-            background-color: #ecedea;
+            background-color: white;
         }
 
         h1 {
             font-weight: bold;
-            color: #061b1e;
+            color: #89023e;
+            font-family: Gabriola;
         }
 
         h2 {
             font-weight: bold;
-            color: #061b1e;
+            color: #9e3061;
+            font-family: Gabriola;
+        }
+
+        h5 {
+            color: #000000;
+            font-family: Gabriola;
+            font-weight: bold;
+        }
+
+        p {
+            color: #000000;
+            font-family: Gabriola;
+        }
+
+        h6 {
+            color: #000000;
+            font-family: Gabriola;
+        }
+
+        a {
+            color: #000000;
+            font-family: Gabriola;
         }
 
     </style>
@@ -43,7 +67,8 @@
                             <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
                                 : {{ produit.quantite_restante }} </h6>
                             <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
-                            <a href="{{ url_for("reservation", id=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
+                            <a style="color: #000000; background-color: #e55090; font-weight: bold"
+                               href="{{ url_for("reservation", id=produit.id_s) }}" class="btn"> -> RESERVER !</a>
                         </div>
                     </div>
 
@@ -53,10 +78,20 @@
 
         <h1></h1>
         <!-- Bouton "Voir plus" -->
-        <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("produits", cat=category_name) }}"
-           style="color: black; background-color: #d36c61;">Voir plus de {{ category_name }}</a>
+        <div class="row">
+            <div class="col-sm-4">
+                <a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("produits", cat=category_name) }}"
+                   style="color: #000000; background-color: #f8f4ea; font-weight: bold">Voir plus
+                    de {{ category_name }}</a>
+            </div>
+        </div>
+
+        <h1></h1>
+
 
     {% endfor %}
 
+<a class="btn btn-secondary btn-lg btn-block" href="{{ url_for("viewcafet") }}"
+                   style="color: #000000; background-color: #39b8bf; font-weight: bold">Je suis un membre de la caféteria</a>
 
 {% endblock %}

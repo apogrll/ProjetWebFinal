@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -7,49 +6,50 @@
 </head>
 
 {% block body %}
-        <style>
+    <style>
         body {
             background-color: beige;
         }
+
         form {
             font-palette: light;
             font-style: revert;
             color: black;
         }
+
         card-body {
             background-color: burlywood;
         }
     </style>
 
 
-{% for produit in sandwich_1 %}
-        <table class="table">
+    <table class="table">
 
-             <thead>
+        <thead>
 
-                    <tr>
+        <tr>
 
-                        <th scope="col">#</th>
-                        <th scope="col">Produits Commandes</th>
-                        <th scope="col">Quantite restante</th>
-                        <th scope="col">Client</th>
-                    </tr>
-             </thead>
+            <th scope="col">#</th>
+            <th scope="col">Produits Commandés</th>
+            <th scope="col">Quantité restante</th>
+            <th scope="col">Client</th>
+        </tr>
+        </thead>
 
+        <tbody>
+        {% for produit in sandwich_1 %}
 
-            <tbody>
+            <tr>
 
-                <tr>
-
-                    <th scope="row">1</th>
-                    <td>{{ produit.nom_s }}</td>
-                    <td>{{ produit.quantite_restante}}</td>
-                    <td>@mdo</td>
-                </tr>
+                <th scope="row">1</th>
+                <td>{{ produit.nom_s }}</td>
+                <td>{{ produit.quantite_restante }}</td>
+                <td>@mdo</td>
+            </tr>
             </tbody>
 
-        </table>
+            </table>
 
-        {%  endfor %}
+        {% endfor %}
 
 {% endblock %}

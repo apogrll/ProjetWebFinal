@@ -9,18 +9,47 @@
 
     <style>
         body {
-            background-color: #ecedea;
+            background-color: white;
         }
 
         h1 {
             font-weight: bold;
-            color: #061b1e;
+            color: #89023e;
+            font-family: Gabriola;
         }
 
-        h3 {
-            color: grey;
+        h2 {
+            font-weight: bold;
+            color: #9e3061;
+            font-family: Gabriola;
+        }
+
+        h5 {
+            color: #000000;
+            font-family: Gabriola;
             font-weight: bold;
         }
+
+        p {
+            color: #000000;
+            font-family: Gabriola;
+        }
+
+        h6 {
+            color: #000000;
+            font-family: Gabriola;
+        }
+
+        a {
+            color: #000000;
+            font-family: Gabriola;
+        }
+
+        h3{
+            color: #000000;
+            font-family: Gabriola;
+        }
+
     </style>
 
 
@@ -42,7 +71,7 @@
                         <h6 class="card-subtitle mb-2 text-muted"> Quantite restante
                             : {{ produit.quantite_restante }} </h6>
                         <h6 class="card-subtitle mb-2 text-muted"> Prix : {{ produit.prix_s }} € </h6>
-                        <a href="{{ url_for("reservation", id=produit.id_s) }}" class="btn btn-primary">RESERVER</a>
+                        <a style="color: #000000; background-color: #a94772; font-weight: bold" href="{{ url_for("reservation", id=produit.id_s) }}" class="btn"> -> RESERVER !</a>
                     </div>
                 </div>
             </div>

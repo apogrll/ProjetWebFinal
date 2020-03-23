@@ -8,17 +8,22 @@
 
     <style>
         body {
-            background-color: beige;
+            background-color: #e8e8e8;
         }
 
         form {
-            font-palette: light;
-            font-style: revert;
-            color: black;
+            font-palette: #e8e8e8;
+            color: #000000;
+            font-family: Arial;
         }
 
         card-body {
-            background-color: burlywood;
+            background-color: #e8e8e8;
+        }
+
+        card {
+            background-color: #e8e8e8;
+
         }
     </style>
 
@@ -26,7 +31,7 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ url_for("do_reservation") }}" method="post">
+                    <form action="{{ url_for("do_reservation", id=produit.id_s) }}" method="post">
                         <div class="form-group row">
                             <label for="staticTitle" class="col-sm-6 col-form-label">Réservation de
                                 : {{ produit.nom_s }} </label>
@@ -59,11 +64,11 @@
                             <input class="form-check-input" type="radio" name="ask_menu" id="produit_menu"
                                    value="avecMenu">
                             <label class="form-check-label" for="avec_menu">
-                                Je prends un menu (Prix : {{ produit.prix_s + 3,15 }} €)
+                                Je prends un menu (Prix : {{ produit.prix_menu }} €)
                             </label>
                         </div>
                         <h1></h1>
-                        <button type="submit" class="btn btn-primary"> Réserver </button>
+                        <button style="color: #000000; background-color: #a94772; font-weight: bold" type="submit" class="btn"> Réserver</button>
                     </form>
                 </div>
             </div>
