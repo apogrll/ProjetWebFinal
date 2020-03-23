@@ -20,3 +20,5 @@ class Reservation (db.Model):
     nom = db.Column(db.Text)
     prenom = db.Column(db.Text)
     produit = db.Column(db.Text)
+    menu = db.Column(db.Boolean)
+    subvention = db.Column(db.Boolean)

@@ -32,6 +32,8 @@
             <th scope="col">Produit Commandé</th>
             <th scope="col">Nom client</th>
             <th scope="col"> Prénom client</th>
+            <th scope="col"> Possède la subvention </th>
+            <th scope="col"> En menu </th>
         </tr>
         </thead>
 
@@ -42,6 +44,8 @@
                     <td>{{ res.produit }}</td>
                     <td>{{ res.nom }}</td>
                     <td>{{ res.prenom }}</td>
+                    <td>{{ res.menu}}</td>
+                    <td>{{ res.subvention}}</td>
                 </tr>
             {% endfor %}
 
