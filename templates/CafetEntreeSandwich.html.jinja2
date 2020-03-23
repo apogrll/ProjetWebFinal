@@ -2,88 +2,89 @@
 
 {% block body %}
 
-    <h1> Nouveau produit </h1>
-<div class="card">
-    <div class="card-body">
-        <div class="card">
-            <div class="card-body">
-                <form action="{{ url_for("entree_sandwich") }}" method="post">
-                    <!-- Nom du produit -->
-                    <div class="form-group">
-                        <label for="exampleInputSurname" style="font-weight: bold"> Nom du produit </label>
-                        <input type="text" class="form-control" id="nom_sandwich" name="nom_sandwich">
-                    </div>
+    <h1> Entrer un nouveau produit </h1>
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ url_for("entree_sandwich") }}" method="post">
+                        <!-- Nom du produit -->
+                        <div class="form-group">
+                            <label for="exampleInputSurname" style="font-weight: bold"> Nom du produit </label>
+                            <input type="text" class="form-control" id="nom_sandwich" name="nom_sandwich">
+                        </div>
 
-                    <!-- Catégorie du produit -->
-                    <label for="exampleInputSurname" style="font-weight: bold"> Catégorie du produit </label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="categorie" id="produit"
-                               value="Sandwich" checked>
-                        <label class="form-check-label" for="sans_menu">
-                            Sandwich
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="categorie" id="produit"
-                               value="PlatChaud">
-                        <label class="form-check-label" for="sans_menu">
-                            Plat Chaud
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="categorie" id="produit"
-                               value="Salade">
-                        <label class="form-check-label" for="sans_menu">
-                            Salade
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="categorie" id="produit"
-                               value="Wrap">
-                        <label class="form-check-label" for="sans_menu">
-                            Wrap
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="categorie" id="produit"
-                               value="Vege">
-                        <label class="form-check-label" for="sans_menu">
-                            Vegetarien
-                        </label>
-                    </div>
-                    <h1> </h1>
+                        <!-- Catégorie du produit -->
+                        <label for="exampleInputSurname" style="font-weight: bold"> Catégorie du produit </label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categorie" id="produit"
+                                   value="Sandwich" checked>
+                            <label class="form-check-label" for="sans_menu">
+                                Sandwich
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categorie" id="produit"
+                                   value="PlatChaud">
+                            <label class="form-check-label" for="sans_menu">
+                                Plat Chaud
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categorie" id="produit"
+                                   value="Salade">
+                            <label class="form-check-label" for="sans_menu">
+                                Salade
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categorie" id="produit"
+                                   value="Wrap">
+                            <label class="form-check-label" for="sans_menu">
+                                Wrap
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="categorie" id="produit"
+                                   value="Vege">
+                            <label class="form-check-label" for="sans_menu">
+                                Vegetarien
+                            </label>
+                        </div>
+                        <h1></h1>
 
 
-                    <!-- Description -->
-                    <div class="form-group">
-                        <label for="exampleInputSurname" style="font-weight: bold"> Ingrédients </label>
-                        <input type="text" class="form-control" id="description" name="description">
-                    </div>
+                        <!-- Description -->
+                        <div class="form-group">
+                            <label for="exampleInputSurname" style="font-weight: bold"> Ingrédients </label>
+                            <input type="text" class="form-control" id="description" name="description">
+                        </div>
 
-                    <!-- Prix -->
-                    <div class="form-group">
-                        <label for="exampleInputSurname" style="font-weight: bold"> Prix du sandwich seul </label>
-                        <input type="text" class="form-control" id="description" name="prix_seul">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputSurname" style="font-weight: bold"> Prix du sandwich avec menu </label>
-                        <input type="text" class="form-control" id="description" name="prix_menu">
-                    </div>
+                        <!-- Prix -->
+                        <div class="form-group">
+                            <label for="exampleInputSurname" style="font-weight: bold"> Prix du sandwich seul </label>
+                            <input type="text" class="form-control" id="description" name="prix_seul">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputSurname" style="font-weight: bold"> Prix du sandwich avec
+                                menu </label>
+                            <input type="text" class="form-control" id="description" name="prix_menu">
+                        </div>
 
-                    <!-- Quantite disponible -->
-                    <div class="form-group">
-                        <label for="exampleInputSurname" style="font-weight: bold"> Quantité disponible </label>
-                        <input type="text" class="form-control" id="description" name="quantité">
-                    </div>
+                        <!-- Quantite disponible -->
+                        <div class="form-group">
+                            <label for="exampleInputSurname" style="font-weight: bold"> Quantité disponible </label>
+                            <input type="text" class="form-control" id="description" name="quantité">
+                        </div>
 
-                    <h1></h1>
-                    <button style="color: #000000; background-color: lightskyblue; font-weight: bold" type="submit"
-                            class="btn"> Confirmer
-                    </button>
-                </form>
+                        <h1></h1>
+                        <button style="color: #000000; background-color: lightskyblue; font-weight: bold" type="submit"
+                                class="btn"> Confirmer
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
