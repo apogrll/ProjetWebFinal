@@ -8,7 +8,7 @@
 {% block body %}
     <style>
         body {
-            background-color: beige;
+            background-color: #e8e8e8;
         }
 
         form {
@@ -16,12 +16,9 @@
             font-style: revert;
             color: black;
         }
-
-        card-body {
-            background-color: burlywood;
-        }
     </style>
 
+    <h1 class="title"> Réservations du jour </h1>
 
     <table class="table">
 
@@ -32,22 +29,22 @@
             <th scope="col">Produit Commandé</th>
             <th scope="col">Nom client</th>
             <th scope="col"> Prénom client</th>
-            <th scope="col"> Possède la subvention </th>
-            <th scope="col"> En menu </th>
+            <th scope="col"> Possède la subvention</th>
+            <th scope="col"> En menu</th>
         </tr>
         </thead>
 
         <tbody>
-            {% for res in reservations %}
-                <tr>
-                    <th scope="row"></th>
-                    <td>{{ res.produit }}</td>
-                    <td>{{ res.nom }}</td>
-                    <td>{{ res.prenom }}</td>
-                    <td>{{ res.menu }}</td>
-                    <td>{{ res.subvention }}</td>
-                </tr>
-            {% endfor %}
+        {% for res in reservations %}
+            <tr>
+                <th scope="row"></th>
+                <td>{{ res.produit }}</td>
+                <td>{{ res.nom }}</td>
+                <td>{{ res.prenom }}</td>
+                <td>{{ res.menu }}</td>
+                <td>{{ res.subvention }}</td>
+            </tr>
+        {% endfor %}
 
         </tbody>
 
