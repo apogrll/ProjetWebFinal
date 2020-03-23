@@ -98,7 +98,6 @@ def reservation(id):
 def do_reservation(id):
     form = flask.request.form
     client = Client.query.filter_by(id_c=1).first()
-
     pdt_res = Produits.query.filter_by(id_s=id).first()
 
     subv = "Non"
@@ -153,11 +152,14 @@ def viewcafet_resa():
 @app.route('/viewcafet/liste')
 def viewcafet_produits():
     liste=Produits.query.all()
-    return flask.render_template("CafetSandwichsDispo.jinja2", list=liste)
+    return flask.render_template("CafetSandwichsDispo.jinja2", liste=liste)
 
 @app.route('/viewcafet/nouveau')
 def viewcafet_nouveau():
     return flask.render_template("CafetEntreeSandwich.html.jinja2")
+
+def entree_sandwich():
+    form = flask.request.form
 
 #def quantite(prod):
 #    quantite_dict = {}
