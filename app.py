@@ -174,7 +174,15 @@ def entree_sandwich():
 
 
 def traitement_ajout(form):
-    return 'bonjour'
+    prod = Produits(nom_s=form.get('nom_sandwich'),
+                  categorie=form.get('categorie'),
+                  description=form.get('description'),
+                  prix_s=form.get('prix_seul'),
+                  quantite_restante=form.get('quantite'),
+                  est_epuise=False,
+                  prix_menu=form.get('prix_menu'))
+    db.session.add(prod)
+    db.session.commit()
 
 
 ##########################################################################################
