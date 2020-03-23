@@ -143,16 +143,24 @@ def produits(cat):
 # VIEW CAFETERIA
 ##########################################################################################
 @app.route('/viewcafet')
+def viewcafet():
+    return flask.render_template("MasterCafet.html.jinja2")
+
+
+@app.route('/viewcafet/resa')
 def viewcafet_resa():
     liste = Reservation.query.all()
     client = Client.query.filter_by(id_c=1).first()
 
-    return flask.render_template("ViewCafet.html.jinja2", reservations=liste)
+    return flask.render_template("CafetReservations.jinja2", reservations=liste)
 
 @app.route('/viewcafet/liste')
 def viewcafet_produits():
-    liste=Produits.query.all()
-    return flask.render_template("CafetSandwichsDispo.jinja2", liste=liste)
+    categories_dict = {}
+    categories1 = set([p.categorie for p in Produits.query.all()])
+    for category_name in categories1:
+        categories_dict[category_name] = Produits.query.filter_by(categorie=category_name).filter_by(est_epuise=False).all()
+    return flask.render_template("CafetSandwichsDispo.jinja2", categories_dict=categories_dict)
 
 @app.route('/viewcafet/nouveau')
 def viewcafet_nouveau():
