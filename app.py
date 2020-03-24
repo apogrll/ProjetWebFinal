@@ -109,6 +109,7 @@ def do_reservation(id):
         menu = "Oui"
 
     resa = Reservation(nom=form.get('Nom_res'), prenom=form.get('Prenom_res'), produit=pdt_res.nom_s, menu=menu, subvention = subv)
+
     if pdt_res.quantite_restante>1:
         pdt_res.quantite_restante = pdt_res.quantite_restante - 1
     elif pdt_res.quantite_restante==1:
