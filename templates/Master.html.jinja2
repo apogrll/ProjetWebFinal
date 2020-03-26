@@ -23,17 +23,19 @@
 <body>
 
 <style>
-    nav {
-        background-color: #17a2b8;
-
+    body {
+        background-color: azure;
     }
 
+    nav {
+        background-color: lightskyblue;
+    }
     span {
         font-weight: bold;
     }
 
     a {
-        color: #FFFFFF;
+        color: #000000;
         font-family: Geneva;
         font-size: x-large;
     }
@@ -49,17 +51,17 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto z-depth-4">
             <li class="nav-item" style="font-weight: bold">
-                <a class="nav-link" href="{{ url_for("afficher_accueil") }}" style="color:#FFFFFF;font-family: Geneva"
+                <a class="nav-link" href="{{ url_for("afficher_accueil") }}" style="color:#000000;font-family: Geneva"
                    style="font-size: large" $enable-shadow> Accueil <span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for("produits", cat="Sandwichs") }}"
-                   style="color:#FFFFFF; font-family:Geneva">Sandwichs </a>
+                   style="color:#000000; font-family:Geneva">Sandwichs </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for("produits", cat="Salades") }}"
-                   style="color:#FFFFFF; font-family: Geneva">Salades</a>
+                   style="color:#000000; font-family: Geneva">Salades</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for("produits", cat ="Wraps") }}"
@@ -75,6 +77,7 @@
             </li>
         </ul>
         <span class="navbar-text" style="color:#FFFFFF"> {{ client.nom_client }} {{ client.prenom_client }}</span>
+        <a class ="nav-link" href="{{ url_for("resa_client") }}" style="color:#FFFFFF; font-family: Geneva"> Mes réservations </a>
         <a class ="nav-link" href="{{ url_for("viewcafet") }}" style="color:#FFFFFF; font-family: Geneva"> Caféteria </a>
 
     </div>
