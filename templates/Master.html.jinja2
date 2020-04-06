@@ -30,19 +30,15 @@
     nav {
         background-color: lightskyblue;
     }
+
     span {
         font-weight: bold;
     }
 
-    a {
-        color: #000000;
-        font-family: Geneva;
-        font-size: x-large;
-    }
-
 </style>
 
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg navbar-light">
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -51,8 +47,8 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto z-depth-4">
             <li class="nav-item" style="font-weight: bold">
-                <a class="nav-link" href="{{ url_for("afficher_accueil") }}" style="color:#000000;font-family: Geneva"
-                   style="font-size: large" $enable-shadow> Accueil <span
+                <a class="nav-link" href="{{ url_for("afficher_accueil") }}" style="color:#000000"
+                   style="font-family: Gabriola" style="font-size: large"> Accueil <span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -65,20 +61,21 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for("produits", cat ="Wraps") }}"
-                   style="color:#FFFFFF; font-family: Geneva">Wraps</a>
+                   style="color:#000000; font-family: Geneva">Wraps</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for("produits", cat="Vegetariens") }}"
-                   style="color:#FFFFFF; font-family: Geneva">Végétariens</a>
+                   style="color:#000000; font-family: Geneva">Végétariens</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for("produits", cat="PlatsChauds") }}"
-                   style="color:#FFFFFF; font-family: Geneva">Plats Chauds</a>
+                   style="color:#000000; font-family: Geneva">Plats Chauds</a>
             </li>
         </ul>
-        <span class="navbar-text" style="color:#FFFFFF"> {{ client.nom_client }} {{ client.prenom_client }}</span>
-        <a class ="nav-link" href="{{ url_for("resa_client") }}" style="color:#FFFFFF; font-family: Geneva"> Mes réservations </a>
-        <a class ="nav-link" href="{{ url_for("viewcafet") }}" style="color:#FFFFFF; font-family: Geneva"> Caféteria </a>
+        <span class="navbar-text" style="color:#000000"> {{ client.nom_client }} {{ client.prenom_client }}</span>
+        <a class="nav-link" href="{{ url_for("resa_client") }}" style="color:#000000; font-family: Geneva"> Mes
+            réservations </a>
+        <a class="nav-link" href="{{ url_for("viewcafet") }}" style="color:#000000; font-family: Geneva"> Caféteria </a>
 
     </div>
 

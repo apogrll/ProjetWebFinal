@@ -1,0 +1,32 @@
+{% extends "Master.html.jinja2" %}
+
+{% block body %}
+    <h1 class="title"> Mes réservations </h1>
+
+    <table class="table">
+
+        <thead>
+
+        <tr>
+            <th scope="row"></th>
+            <th scope="col">Produit Commandé</th>
+            <th scope="col"> Avec subvention</th>
+            <th scope="col"> En menu</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for res in reservations %}
+            <tr>
+                <th scope="row"></th>
+                <td>{{ res.produit }}</td>
+                <td>{{ res.subvention }}</td>
+                <td>{{ res.menu }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+{% endblock %}

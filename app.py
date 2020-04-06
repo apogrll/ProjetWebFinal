@@ -125,7 +125,7 @@ def resa_client():
     client = Client.query.filter_by(id_c=1).first()
     liste = Reservation.query.filter_by(nom=client.nom_client).filter_by(prenom=client.prenom_client).all()
 
-    return flask.render_template("CafetReservations.jinja2", reservations=liste, client=client)
+    return flask.render_template("MesReservations.html.jinja2", reservations=liste, client=client)
 
 ##########################################################################################
 # LIEN PRODUITS
